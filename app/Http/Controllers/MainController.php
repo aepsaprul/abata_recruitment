@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\LokerUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,19 +21,19 @@ class MainController extends Controller
         // validate request
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:admins',
+            'email' => 'required|email|unique:loker_users',
             'password' => 'required|min:5|max:12'
         ]);
 
         // insert data
-        $admin = Admin::create([
+        $loker_user = LokerUser::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
 
-        $request->session()->put('LoggedUser', $admin->id);
-        return redirect('admin/dashboard');
+        $request->session()->put('LoggedUser', $loker_user->id);
+        return redirect()->route('auth.dashboard');
     }
 
     function check(Request $request)
@@ -44,7 +44,7 @@ class MainController extends Controller
             'password' => 'required|min:5|max:12'
         ]);
 
-        $userInfo = Admin::where('email', '=', $request->email)->first();
+        $userInfo = LokerUser::where('email', '=', $request->email)->first();
 
         if (!$userInfo) {
             return back()->with('fail', 'email tidak ada');
@@ -52,7 +52,7 @@ class MainController extends Controller
             // cek password
             if (Hash::check($request->password, $userInfo->password)) {
                 $request->session()->put('LoggedUser', $userInfo->id);
-                return redirect('admin/dashboard');
+                return redirect()->route('auth.dashboard');
             } else {
                 return back()->with('fail', 'password salah');
             }
@@ -69,7 +69,7 @@ class MainController extends Controller
     }
 
     function dashboard() {
-        $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedUser'))->first()];
-        return view('admin.dashboard', $data);
+        $data = ['LoggedUserInfo' => LokerUser::where('id', '=', session('LoggedUser'))->first()];
+        return view('user.dashboard', $data);
     }
 }
