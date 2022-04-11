@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HcLamaran;
 use App\Models\LokerUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,8 @@ class MainController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:loker_users',
-            'password' => 'required|min:5|max:12'
+            'password' => 'required|min:5|max:12',
+            'confirm_password' => 'required|same:password'
         ]);
 
         // insert data
@@ -31,6 +33,12 @@ class MainController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+
+        $lamaran = new HcLamaran;
+        $lamaran->nama_lengkap = $request->name;
+        $lamaran->telepon = $request->telepon;
+        $lamaran->email = $request->email;
+        $lamaran->save();
 
         $request->session()->put('LoggedUser', $loker_user->id);
         return redirect()->route('auth.dashboard');
@@ -64,7 +72,7 @@ class MainController extends Controller
     function logout() {
         if (session()->has('LoggedUser')) {
             session()->pull('LoggedUser');
-            return redirect('/auth/login');
+            return redirect('/');
         }
     }
 
