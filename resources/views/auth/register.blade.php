@@ -41,6 +41,11 @@
                 <a href="#" class="h2 text-uppercase"><strong>Register</strong></a>
             </div>
             <div class="card-body">
+                <p class="login-box-msg text-danger">
+                    @if (Session::get('fail'))
+                        <i>{{ Session::get('fail') }}</i>
+                    @endif
+                </p>
                 <form action="{{ route('auth.save') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">

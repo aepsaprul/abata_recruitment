@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HcLamaran;
+use App\Models\LokerBiodata;
 use App\Models\LokerUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -34,11 +35,11 @@ class MainController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        $lamaran = new HcLamaran;
-        $lamaran->nama_lengkap = $request->name;
-        $lamaran->telepon = $request->telepon;
-        $lamaran->email = $request->email;
-        $lamaran->save();
+        $biodata = new LokerBiodata;
+        $biodata->nama_lengkap = $request->name;
+        $biodata->telepon = $request->telepon;
+        $biodata->email = $request->email;
+        $biodata->save();
 
         $request->session()->put('LoggedUser', $loker_user->id);
         return redirect()->route('auth.dashboard');
@@ -55,7 +56,7 @@ class MainController extends Controller
         $userInfo = LokerUser::where('email', '=', $request->email)->first();
 
         if (!$userInfo) {
-            return back()->with('fail', 'email tidak ada');
+            return back()->with('fail', 'Email tidak terdaftar');
         } else {
             // cek password
             if (Hash::check($request->password, $userInfo->password)) {
@@ -65,7 +66,7 @@ class MainController extends Controller
                 $request->session()->put('LoggedUser', $userInfo->id);
                 return redirect()->route('auth.dashboard');
             } else {
-                return back()->with('fail', 'password salah');
+                return back()->with('fail', 'Password salah');
             }
 
         }

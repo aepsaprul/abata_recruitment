@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,8 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/auth/login', [MainController::class, 'login'])->name('auth.login');
     Route::get('/auth/register', [MainController::class, 'register'])->name('auth.register');
     Route::get('/user/dashboard', [MainController::class, 'dashboard'])->name('auth.dashboard');
+
+    // biodata
+    Route::post('profile/biodata', [ProfileController::class, 'biodata'])->name('profile.biodata');
+    Route::post('profile/biodatas/update', [ProfileController::class, 'biodataUpdate'])->name('profile.biodata_update');
 });

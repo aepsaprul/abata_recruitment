@@ -41,7 +41,11 @@
                 <a href="#" class="h2 text-uppercase"><strong>Login</strong></a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in untuk memulai Aplikasi</p>
+                <p class="login-box-msg text-danger">
+                    @if (Session::get('fail'))
+                        <i>{{ Session::get('fail') }}</i>
+                    @endif
+                </p>
 
                 <form action="{{ route('auth.check') }}" method="post">
                     @csrf
