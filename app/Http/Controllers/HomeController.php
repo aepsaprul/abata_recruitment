@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LokerBiodata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $biodata = LokerBiodata::where('email', Auth::user()->email)->first();
+
+        return view('home', ['biodata' => $biodata]);
     }
 }

@@ -34,36 +34,45 @@
                 <div class="col-md-3">
                     <!-- Profile Image -->
                     <div class="card card-primary card-outline">
-                        <form id="form_foto">
+                        <form id="form_foto" method="post" enctype="multipart/form-data">
                             <div class="card-body box-profile">
-                                <div class="text-center">
-                                    <img class="img-fluid img-circle"
-                                        src="{{ asset('public/assets/no-image.jpg') }}"
-                                        alt="User profile picture">
+                                <div class="text-center profile_img">
+                                    @if ($biodata->foto)
+                                        @if(file_exists('public/foto/' . $biodata->foto))
+                                        <img
+                                            class="img-fluid img-circle"
+                                            src="{{ asset('public/foto/' . $biodata->foto) }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @else
+                                        <img
+                                            class="img-fluid img-circle"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @endif
+                                    @else
+                                        <img
+                                            class="img-fluid img-circle"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                    @endif
                                 </div>
-
-                                <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary btn-block">Update Foto</button>
-                            </div>
-                        </form>
-                    </div>
+                                {{-- id --}}
+                                <input type="hidden" id="id" value="{{ Auth::user()->email }}" name="id">
 
-                    <!-- Profile Image -->
-                    <div class="card card-primary card-outline">
-                        <form id="form_foto">
-                            <div class="card-body box-profile">
-                                <div class="text-center">
-                                    <img class="img-fluid img-circle"
-                                        src="{{ asset('public/assets/no-image.jpg') }}"
-                                        alt="User profile picture">
+                                <div class="custom-file mb-2">
+                                    <input type="file" class="custom-file-input" id="customFile" name="foto">
+                                    <label class="custom-file-label" for="customFile">Pilih Foto</label>
                                 </div>
-
-                                <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
-                            </div>
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary btn-block">Update Foto</button>
+                                <button class="btn btn-primary btn-foto-spinner d-none btn-block" disabled>
+                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                    Loading...
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-block btn-foto">Update Foto</button>
                             </div>
                         </form>
                     </div>
@@ -177,6 +186,65 @@ $(document).ready(function () {
         timer: 3000
     });
 
+    // upload foto
+    $('input[type="file"][name="foto"]').on('change', function() {
+        var img_path = $(this)[0].value;
+        var img_holder = $('.profile_img');
+        var currentImagePath = $(this).data('value');
+        var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
+        if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
+            if (typeof(FileReader) != 'undefind') {
+                img_holder.empty();
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('<img/>', {'src':e.target.result, 'class':'img-fluid img-circle'}).appendTo(img_holder);
+                }
+                img_holder.show();
+                reader.readAsDataURL($(this)[0].files[0]);
+            } else {
+                $(img_holder).html('Browser tidak support FileReader');
+            }
+        } else {
+            $(img_holder).html(currentImagePath);
+        }
+    });
+
+    $(document).on('submit', '#form_foto', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData($('#form_foto')[0]);
+
+        $.ajax({
+            url: "{{ URL::route('profile.foto_update') }}",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('.btn-foto-spinner').removeClass('d-none');
+                $('.btn-foto').addClass('d-none');
+            },
+            success: function (response) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Foto berhasil diubah'
+                });
+
+                setTimeout(() => {
+                    window.location.reload(1);
+                }, 1000);
+            },
+            error: function(xhr, status, error) {
+                var errorMessage = xhr.status + ': ' + error
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error - ' + errorMessage
+                });
+            }
+        })
+    })
+
     // biodata
     biodata();
     function biodata() {
@@ -189,7 +257,6 @@ $(document).ready(function () {
             type: 'post',
             data: formData,
             success: function(response) {
-                console.log(response);
                 var biodata_data = "" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
@@ -404,7 +471,6 @@ $(document).ready(function () {
                 $('.btn-biodata-save').addClass('d-none');
             },
             success: function(response) {
-                console.log(response);
                 if (response.status == 400) {
                     $('#error_telepon').append(response.errors.telepon);
                     $('#error_nama_lengkap').append(response.errors.nama_lengkap);

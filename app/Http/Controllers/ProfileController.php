@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LokerBiodata;
 use App\Models\LokerUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
@@ -90,5 +91,27 @@ class ProfileController extends Controller
                 'message' => "Data berhasil ditambahkan"
             ]);
         }
+    }
+
+    public function fotoUpdate(Request $request)
+    {
+        $biodata = LokerBiodata::where('email', $request->id)->first();
+
+        if($request->hasFile('foto')) {
+            if (file_exists("public/foto/" . $biodata->foto)) {
+                File::delete("public/foto/" . $biodata->foto);
+            }
+            $file = $request->file('foto');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move('public/foto/', $filename);
+            $biodata->foto = $filename;
+        }
+
+        $biodata->save();
+
+        return response()->json([
+            'status' => $request->all()
+        ]);
     }
 }

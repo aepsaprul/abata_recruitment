@@ -27,4 +27,5 @@ Route::group(['middleware' => 'auth'], function () {
     // biodata
     Route::post('profile/biodata', [ProfileController::class, 'biodata'])->name('profile.biodata');
     Route::post('profile/biodatas/update', [ProfileController::class, 'biodataUpdate'])->name('profile.biodata_update');
+    Route::post('profile/foto/update', [ProfileController::class, 'fotoUpdate'])->name('profile.foto_update');
 });
