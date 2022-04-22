@@ -72,7 +72,7 @@
                                     <span class="spinner-grow spinner-grow-sm"></span>
                                     Loading...
                                 </button>
-                                <button type="submit" class="btn btn-primary btn-block btn-foto">Update Foto</button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-block btn-foto">Update Foto</button>
                             </div>
                         </form>
                     </div>
@@ -102,11 +102,11 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <button class="btn btn-primary btn-biodata-spinner d-none" disabled style="width: 130px;">
+                                                <button class="btn btn-primary btn-sm btn-biodata-spinner d-none" disabled style="width: 130px;">
                                                     <span class="spinner-grow spinner-grow-sm"></span>
                                                     Loading...
                                                 </button>
-                                                <button class="btn btn-primary btn-biodata-save" style="width: 130px;"><i class="fas fa-save"></i> Simpan</button>
+                                                <button class="btn btn-primary btn-sm btn-biodata-save" style="width: 130px;"><i class="fas fa-save"></i> Simpan</button>
                                             </div>
                                         </div>
                                     </form>
