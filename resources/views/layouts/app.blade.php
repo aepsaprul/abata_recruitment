@@ -35,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
-                <a href="{{ url('/') }}" class="navbar-brand">
+                <a href="#" class="navbar-brand">
                     <img src="{{ asset('public/assets/logo-biru.png') }}" alt="AdminLTE Logo" class="brand-image">
                     <span class="brand-text font-weight-light">Abata</span>
                 </a>
@@ -48,7 +48,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="{{ route('home') }}" class="nav-link">Home</a>
+                            <a href="{{ route('home') }}" class="nav-link">Biodata</a>
                         </li>
                     </ul>
                 </div>

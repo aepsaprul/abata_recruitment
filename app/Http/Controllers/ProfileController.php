@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LokerBiodata;
+use App\Models\LokerSebelumMenikah;
 use App\Models\LokerUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -112,6 +113,48 @@ class ProfileController extends Controller
 
         return response()->json([
             'status' => $request->all()
+        ]);
+    }
+
+    public function sebelumMenikah($id)
+    {
+        $sebelumMenikah = LokerSebelumMenikah::where('email', $id)->get();
+
+        return response()->json([
+            'sebelum_menikahs' => $sebelumMenikah
+        ]);
+    }
+
+    public function sebelumMenikahStore(Request $request)
+    {
+        $sebelumMenikah = new LokerSebelumMenikah;
+        $sebelumMenikah->email = $request->id;
+        $sebelumMenikah->hubungan = $request->hubungan;
+        $sebelumMenikah->nama = $request->nama;
+        $sebelumMenikah->usia = $request->usia;
+        $sebelumMenikah->gender = $request->gender;
+        $sebelumMenikah->pendidikan = $request->pendidikan;
+        $sebelumMenikah->pekerjaan = $request->pekerjaan;
+        $sebelumMenikah->save();
+
+        $sebelumMenikahs = LokerSebelumMenikah::where('email', $sebelumMenikah->email)->get();
+
+        return response()->json([
+            'status' => 'Data keluarga sebelum menikah berhasil diperbaharui',
+            'sebelum_menikahs' => $sebelumMenikahs
+        ]);
+    }
+
+    public function sebelumMenikahDelete($id)
+    {
+        $sebelumMenikah = LokerSebelumMenikah::find($id);
+        $sebelumMenikah->delete();
+
+        $sebelumMenikahs = LokerSebelumMenikah::where('email', $sebelumMenikah->email)->get();
+
+        return response()->json([
+            'status' => 'Data keluarga sebelum menikah berhasil dihapus',
+            'sebelum_menikahs' => $sebelumMenikahs
         ]);
     }
 }

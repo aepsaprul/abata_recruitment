@@ -82,6 +82,7 @@
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
                                 <li class="nav-item"><a class="nav-link active" href="#biodata" data-toggle="tab">Biodata</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#medsos" data-toggle="tab">Medis Sosial</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#pendidikan" data-toggle="tab">Pendidikan</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#penghargaan" data-toggle="tab">Penghargaan</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#organisasi" data-toggle="tab">Organisasi</a></li>
@@ -94,8 +95,6 @@
                                 <div class="active tab-pane" id="biodata">
                                     <form id="biodata_form">
 
-                                        {{-- id --}}
-                                        <input type="hidden" id="id" value="{{ Auth::user()->email }}" name="id">
 
                                         <div class="row" id="biodata_data">
                                             {{-- data di jquery --}}
@@ -110,6 +109,133 @@
                                             </div>
                                         </div>
                                     </form>
+
+                                    <hr>
+
+                                    <div class="card bg-light">
+                                        <div class="card-header">
+                                            <span class="font-weight-bold">Keluarga Sebelum Menikah</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>
+                                                <button class="btn btn-primary btn-sm px-3" type="button" data-toggle="collapse" data-target="#formInputSebelumMenikah" aria-expanded="false" aria-controls="formInputSebelumMenikah">
+                                                    <i class="fas fa-plus"></i> Tambah Data
+                                                </button>
+                                            </p>
+                                            <div class="collapse" id="formInputSebelumMenikah">
+                                                <div class="card card-body">
+                                                    <form id="sebelum_menikah_form">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="sebelum_menikah_hubungan" class="col-form-label col-form-label-sm font-weight-light">Hubungan</label>
+                                                                    <select name="sebelum_menikah_hubungan" id="sebelum_menikah_hubungan" class="form-control form-control-sm">
+                                                                        <option value="">--Pilih Hubungan--</option>
+                                                                        <option value="AYAH">AYAH</option>
+                                                                        <option value="IBU">IBU</option>
+                                                                        <option value="SDR LAKI - LAKI">SDR LAKI - LAKI</option>
+                                                                        <option value="SDR PEREMPUAN">SDR PEREMPUAN</option>
+                                                                        <option value="KAKEK">KAKEK</option>
+                                                                        <option value="NENEK">NENEK</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="sebelum_menikah_nama" class="col-form-label col-form-label-sm font-weight-light">Nama</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="sebelum_menikah_nama"
+                                                                        name="sebelum_menikah_nama"
+                                                                        maxlength="30"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="sebelum_menikah_usia" class="col-form-label col-form-label-sm font-weight-light">Usia</label>
+                                                                    <input
+                                                                        type="number"
+                                                                        class="form-control form-control-sm"
+                                                                        id="sebelum_menikah_usia"
+                                                                        name="sebelum_menikah_usia"
+                                                                        maxlength="2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="sebelum_menikah_jenis_kelamin" class="col-form-label col-form-label-sm font-weight-light">Jenis Kelamin</label>
+                                                                    <select name="sebelum_menikah_jenis_kelamin" id="sebelum_menikah_jenis_kelamin" class="form-control form-control-sm">
+                                                                        <option value="">--Pilih Jenis Kelamin--</option>
+                                                                        <option value="l">Laki - laki</option>
+                                                                        <option value="p">Perempuan</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="sebelum_menikah_pendidikan" class="col-form-label col-form-label-sm font-weight-light">Pendidikan Terakhir</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="sebelum_menikah_pendidikan"
+                                                                        name="sebelum_menikah_pendidikan"
+                                                                        maxlength="10"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="sebelum_menikah_pekerjaan" class="col-form-label col-form-label-sm font-weight-light">Pekerjaan Terakhir</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="sebelum_menikah_pekerjaan"
+                                                                        name="sebelum_menikah_pekerjaan"
+                                                                        maxlength="30"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-5">
+                                                            <div class="col-md-6">
+                                                                <button class="btn btn-primary btn-sm btn-sebelum-menikah-spinner d-none" disabled style="width: 130px;">
+                                                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                                                    Loading...
+                                                                </button>
+                                                                <button
+                                                                    type="submit"
+                                                                    class="btn btn-primary btn-sm btn-sebelum-menikah-save"
+                                                                    style="width: 130px;">
+                                                                        <i class="fas fa-save"></i> Simpan
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div style="overflow-x: auto;">
+                                                <table id="tabel_sebelum_menikah" class="table table-bordered table-striped" style="font-size: 14px; width: 100%;">
+                                                    <thead>
+                                                        <tr class="bg-primary">
+                                                            <th class="text-center">Hubungan</th>
+                                                            <th class="text-center">Nama</th>
+                                                            <th class="text-center">Usia</th>
+                                                            <th class="text-center">Jenis Kelamin</th>
+                                                            <th class="text-center">Pendidikan</th>
+                                                            <th class="text-center">Pekerjaan</th>
+                                                            <th class="text-center">Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="data_sebelum_menikah">
+                                                        {{-- sebelum menikah data di jquery --}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 {{-- pendidikan --}}
                                 <div class="tab-pane" id="pendidikan">
@@ -260,21 +386,21 @@ $(document).ready(function () {
                 var biodata_data = "" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"nama_lengkap\" class=\"col-form-label col-form-label-sm\">Nama Lengkap</label>" +
+                        "<label for=\"nama_lengkap\" class=\"col-form-label col-form-label-sm font-weight-light\">Nama Lengkap</label>" +
                         "<input type=\"text\" class=\"form-control form-control-sm\" id=\"nama_lengkap\" name=\"nama_lengkap\" maxlength=\"50\" value=\"" + response.biodatas.nama_lengkap + "\" onkeyup=\"this.value = this.value.toUpperCase()\">" +
                         "<small id=\"error_nama_lengkap\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"nama_panggilan\" class=\"col-form-label col-form-label-sm\">Nama Panggilan</label>" +
+                        "<label for=\"nama_panggilan\" class=\"col-form-label col-form-label-sm font-weight-light\">Nama Panggilan</label>" +
                         "<input type=\"text\" class=\"form-control form-control-sm\" id=\"nama_panggilan\" name=\"nama_panggilan\" maxlength=\"20\" value=\"" + response.biodatas.nama_panggilan + "\" onkeyup=\"this.value = this.value.toUpperCase()\">" +
                         "<small id=\"error_nama_panggilan\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"gender\" class=\"col-form-label col-form-label-sm\">Jenis Kelamin</label>" +
+                        "<label for=\"gender\" class=\"col-form-label col-form-label-sm font-weight-light\">Jenis Kelamin</label>" +
                         "<select name=\"gender\" id=\"gender\" class=\"form-control form-control-sm\">" +
                             "<option value=\"\">-- Pilih Jenis Kelamin --</option>" +
                             "<option value=\"L\"";
@@ -297,14 +423,14 @@ $(document).ready(function () {
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"nomor_ktp\" class=\"col-form-label col-form-label-sm\">Nomor KTP</label>" +
+                        "<label for=\"nomor_ktp\" class=\"col-form-label col-form-label-sm font-weight-light\">Nomor KTP</label>" +
                         "<input type=\"number\" class=\"form-control form-control-sm\" id=\"nomor_ktp\" name=\"nomor_ktp\" maxlength=\"18\" value=\"" + response.biodatas.nomor_ktp + "\">" +
                         "<small id=\"error_nomor_ktp\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"status_kawin\" class=\"col-form-label col-form-label-sm\">Status Perkawinan</label>" +
+                        "<label for=\"status_kawin\" class=\"col-form-label col-form-label-sm font-weight-light\">Status Perkawinan</label>" +
                         "<select name=\"status_kawin\" id=\"status_kawin\" class=\"form-control form-control-sm\">" +
                             "<option value=\"\">-- Pilih Status --</option>" +
                             "<option value=\"lajang\"";
@@ -334,7 +460,7 @@ $(document).ready(function () {
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"agama\" class=\"col-form-label col-form-label-sm\">Agama</label>" +
+                        "<label for=\"agama\" class=\"col-form-label col-form-label-sm font-weight-light\">Agama</label>" +
                         "<select name=\"agama\" id=\"agama\" class=\"form-control form-control-sm\">" +
                             "<option value=\"\">-- Pilih Agama --</option>" +
 
@@ -368,35 +494,35 @@ $(document).ready(function () {
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"tempat_lahir\" class=\"col-form-label col-form-label-sm\">Tempat Lahir</label>" +
+                        "<label for=\"tempat_lahir\" class=\"col-form-label col-form-label-sm font-weight-light\">Tempat Lahir</label>" +
                         "<input type=\"text\" class=\"form-control form-control-sm\" id=\"tempat_lahir\" name=\"tempat_lahir\" maxlength=\"50\" value=\"" + response.biodatas.tempat_lahir + "\" onkeyup=\"this.value = this.value.toUpperCase()\">" +
                         "<small id=\"error_tempat_lahir\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"tanggal_lahir\" class=\"col-form-label col-form-label-sm\">Tanggal Lahir</label>" +
+                        "<label for=\"tanggal_lahir\" class=\"col-form-label col-form-label-sm font-weight-light\">Tanggal Lahir</label>" +
                         "<input type=\"date\" class=\"form-control form-control-sm\" id=\"tanggal_lahir\" name=\"tanggal_lahir\" value=\"" + response.biodatas.tanggal_lahir + "\">" +
                         "<small id=\"error_tanggal_lahir\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-6 col-md-6 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"alamat_asal\" class=\"col-form-label col-form-label-sm\">Alamat KTP</label>" +
+                        "<label for=\"alamat_asal\" class=\"col-form-label col-form-label-sm font-weight-light\">Alamat KTP</label>" +
                         "<textarea class=\"form-control form-control-sm\" rows=\"3\" id=\"alamat_asal\" name=\"alamat_asal\" onkeyup=\"this.value = this.value.toUpperCase()\">" + response.biodatas.alamat_asal + "</textarea>" +
                         "<small id=\"error_alamat_asal\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-6 col-md-6 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"alamat_domisili\" class=\"col-form-label col-form-label-sm\">Alamat Sekarang</label>" +
+                        "<label for=\"alamat_domisili\" class=\"col-form-label col-form-label-sm font-weight-light\">Alamat Sekarang</label>" +
                         "<textarea class=\"form-control form-control-sm\" rows=\"3\" id=\"alamat_domisili\" name=\"alamat_domisili\" onkeyup=\"this.value = this.value.toUpperCase()\">" + response.biodatas.alamat_domisili + "</textarea>" +
                         "<small id=\"error_alamat_domisili\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"sim\">Jenis & Nomor SIM</label>" +
+                        "<label for=\"sim\" class=\"font-weight-light\">Jenis & Nomor SIM</label>" +
                         "<div class=\"row\">" +
                             "<div class=\"col-md-4 col-sm-4 col-4\">" +
                                 "<input type=\"text\" id=\"edit_jenis_sim\" name=\"jenis_sim\" class=\"form-control form-control-sm\" maxlength=\"10\" value=\"" + response.biodatas.jenis_sim + "\" onkeyup=\"this.value = this.value.toUpperCase()\">" +
@@ -411,21 +537,21 @@ $(document).ready(function () {
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"email\" class=\"col-form-label col-form-label-sm\">Email</label>" +
+                        "<label for=\"email\" class=\"col-form-label col-form-label-sm font-weight-light\">Email</label>" +
                         "<input type=\"email\" class=\"form-control form-control-sm\" id=\"email\" name=\"email\" maxlength=\"50\" value=\"" + response.biodatas.email + "\" disabled>" +
                         "<small id=\"error_email\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"telepon\" class=\"col-form-label col-form-label-sm\">Telepon</label>" +
+                        "<label for=\"telepon\" class=\"col-form-label col-form-label-sm font-weight-light\">Telepon</label>" +
                         "<input type=\"text\" class=\"form-control form-control-sm\" id=\"telepon\" name=\"telepon\" maxlength=\"15\" value=\"" + response.biodatas.telepon + "\">" +
                         "<small id=\"error_telepon\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
                 "</div>" +
                 "<div class=\"col-lg-3 col-md-3 col-sm-12 col-12\">" +
                     "<div class=\"form-group\">" +
-                        "<label for=\"penghasilan_ortu\" class=\"col-form-label col-form-label-sm\">Penghasilan Orang Tua</label>" +
+                        "<label for=\"penghasilan_ortu\" class=\"col-form-label col-form-label-sm font-weight-light\">Penghasilan Orang Tua</label>" +
                         "<input type=\"text\" class=\"form-control form-control-sm\" id=\"penghasilan_ortu\" name=\"penghasilan_ortu\" maxlength=\"15\" value=\"" + format_rupiah(response.biodatas.penghasilan_ortu) + "\">" +
                         "<small id=\"error_penghasilan_ortu\" class=\"form-text text-danger font-italic\"></small>" +
                     "</div>" +
@@ -511,6 +637,207 @@ $(document).ready(function () {
                 });
             }
         });
+    });
+
+    // sebelum menikah
+    $('#sebelum_menikah_jenis_kelamin').prop('disabled', true);
+
+    $('#sebelum_menikah_hubungan').on('change', function() {
+        if ($(this).val() == "AYAH" || $(this).val() == "KAKEK" || $(this).val() == "SDR LAKI - LAKI") {
+            $('#sebelum_menikah_jenis_kelamin').val("l");
+            $('#sebelum_menikah_jenis_kelamin').prop('disabled', true);
+        } else if ($(this).val() == "IBU" || $(this).val() == "NENEK" || $(this).val() == "SDR PEREMPUAN") {
+            $('#sebelum_menikah_jenis_kelamin').val("p");
+            $('#sebelum_menikah_jenis_kelamin').prop('disabled', true);
+        } else if ($(this).val() == "") {
+            $('#sebelum_menikah_jenis_kelamin').val("");
+            $('#sebelum_menikah_jenis_kelamin').prop('disabled', true);
+        } else {
+            $('#sebelum_menikah_jenis_kelamin').val("");
+            $('#sebelum_menikah_jenis_kelamin').prop('disabled', false);
+        }
+    });
+
+    sebelumMenikah();
+    function sebelumMenikah() {
+        var id = $('#id').val();
+        var url = '{{ route("profile.sebelum_menikah", ":id") }}';
+        url = url.replace(':id', id );
+
+        $.ajax({
+            url:url,
+            type: 'GET',
+            success: function(response) {
+                var sebelum_menikah_data = "";
+
+                if (response.sebelum_menikahs.length == 0) {
+                    sebelum_menikah_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\" colspan=\"7\">Kosong</td>";
+                        "</tr>";
+                } else {
+                    $.each(response.sebelum_menikahs, function(index, value) {
+                        sebelum_menikah_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                            "<td class=\"text-center\">" + value.nama + "</td>" +
+                            "<td class=\"text-center\">" + value.usia + "</td>" +
+                            "<td class=\"text-center\">" + value.gender + "</td>" +
+                            "<td class=\"text-center\">" + value.pendidikan + "</td>" +
+                            "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
+                            "<td class=\"text-center\">" +
+                                "<button class=\"sebelum_menikah_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                        "<i class=\"fa fa-trash\"></i>" +
+                                "</button>" +
+                            "</td>" +
+                        "</tr>";
+                    });
+                }
+                $('#data_sebelum_menikah').append(sebelum_menikah_data);
+            }
+        });
+    }
+
+    $('#sebelum_menikah_form').submit(function(e) {
+        e.preventDefault();
+        if ($('#sebelum_menikah_hubungan').val() == "" || $('#sebelum_menikah_nama').val() == "" || $('#sebelum_menikah_usia').val() == "" || $('#sebelum_menikah_jenis_kelamin').val() == "" || $('#sebelum_menikah_pendidikan').val() == "" || $('#sebelum_menikah_pekerjaan').val() == "") {
+            alert('Formulir tidak boleh kosong');
+        } else {
+            $('#data_sebelum_menikah').empty();
+
+            var formData = {
+                id: $('#id').val(),
+                hubungan: $('#sebelum_menikah_hubungan').val(),
+                nama: $('#sebelum_menikah_nama').val(),
+                usia: $('#sebelum_menikah_usia').val(),
+                gender: $('#sebelum_menikah_jenis_kelamin').val(),
+                pendidikan: $('#sebelum_menikah_pendidikan').val(),
+                pekerjaan: $('#sebelum_menikah_pekerjaan').val()
+            }
+
+            $.ajax({
+                url: "{{ URL::route('profile.sebelum_menikah_store') }}",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    $('.btn-sebelum-menikah-spinner').removeClass('d-none');
+                    $('.btn-sebelum-menikah-save').addClass('d-none');
+                },
+                success: function(response) {
+                    var sebelum_menikah_data = "";
+
+                    if (response.sebelum_menikahs.length == 0) {
+                        sebelum_menikah_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"7\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.sebelum_menikahs, function(index, value) {
+                            sebelum_menikah_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.usia + "</td>" +
+                                "<td class=\"text-center\">" + value.gender + "</td>" +
+                                "<td class=\"text-center\">" + value.pendidikan + "</td>" +
+                                "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"sebelum_menikah_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_sebelum_menikah').append(sebelum_menikah_data);
+
+                    // empty value
+                    $('#sebelum_menikah_hubungan').val("");
+                    $('#sebelum_menikah_nama').val("");
+                    $('#sebelum_menikah_usia').val("");
+                    $('#sebelum_menikah_jenis_kelamin').val("");
+                    $('#sebelum_menikah_pendidikan').val("");
+                    $('#sebelum_menikah_pekerjaan').val("");
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data sebelum menikah berhasil diperbaharui'
+                    });
+
+                    setTimeout(() => {
+                        $('.btn-sebelum-menikah-spinner').addClass('d-none');
+                        $('.btn-sebelum-menikah-save').removeClass('d-none');
+                    }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        }
+    });
+
+    $('body').on('click', '.sebelum_menikah_btn_delete', function() {
+        var result = confirm('Yakin akan dihapus?');
+        if (result) {
+            $('#data_sebelum_menikah').empty();
+
+            var id = $(this).attr('data-id');
+            var url = '{{ route("profile.sebelum_menikah_delete", ":id") }}';
+            url = url.replace(':id', id );
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    var sebelum_menikah_data = "";
+
+                    if (response.sebelum_menikahs.length == 0) {
+                        sebelum_menikah_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"7\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.sebelum_menikahs, function(index, value) {
+                            sebelum_menikah_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.usia + "</td>" +
+                                "<td class=\"text-center\">" + value.gender + "</td>" +
+                                "<td class=\"text-center\">" + value.pendidikan + "</td>" +
+                                "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"sebelum_menikah_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_sebelum_menikah').append(sebelum_menikah_data);
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data sebelum menikah berhasil dihapus'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
     });
 });
 
