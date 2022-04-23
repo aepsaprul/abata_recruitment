@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\LokerBiodata;
+use App\Models\LokerKerabatDarurat;
 use App\Models\LokerSebelumMenikah;
+use App\Models\LokerSetelahMenikah;
 use App\Models\LokerUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -155,6 +157,88 @@ class ProfileController extends Controller
         return response()->json([
             'status' => 'Data keluarga sebelum menikah berhasil dihapus',
             'sebelum_menikahs' => $sebelumMenikahs
+        ]);
+    }
+
+    public function setelahMenikah($id)
+    {
+        $setelahMenikah = LokerSetelahMenikah::where('email', $id)->get();
+
+        return response()->json([
+            'setelah_menikahs' => $setelahMenikah
+        ]);
+    }
+
+    public function setelahMenikahStore(Request $request)
+    {
+        $setelahMenikah = new LokerSetelahMenikah;
+        $setelahMenikah->email = $request->id;
+        $setelahMenikah->hubungan = $request->hubungan;
+        $setelahMenikah->nama = $request->nama;
+        $setelahMenikah->tempat_lahir = $request->tempat_lahir;
+        $setelahMenikah->tanggal_lahir = $request->tanggal_lahir;
+        $setelahMenikah->pekerjaan = $request->pekerjaan;
+        $setelahMenikah->save();
+
+        $setelahMenikahs = LokerSetelahMenikah::where('email', $setelahMenikah->email)->get();
+
+        return response()->json([
+            'status' => 'Data keluarga setelah menikah berhasil diperbaharui',
+            'setelah_menikahs' => $setelahMenikahs
+        ]);
+    }
+
+    public function setelahMenikahDelete($id)
+    {
+        $setelahMenikah = LokerSetelahMenikah::find($id);
+        $setelahMenikah->delete();
+
+        $setelahMenikahs = LokerSetelahMenikah::where('email', $setelahMenikah->email)->get();
+
+        return response()->json([
+            'status' => 'Data keluarga setelah menikah berhasil dihapus',
+            'setelah_menikahs' => $setelahMenikahs
+        ]);
+    }
+
+    public function kerabatDarurat($id)
+    {
+        $kerabatDarurat = LokerKerabatDarurat::where('email', $id)->get();
+
+        return response()->json([
+            'kerabat_darurats' => $kerabatDarurat
+        ]);
+    }
+
+    public function kerabatDaruratStore(Request $request)
+    {
+        $kerabatDarurat = new LokerKerabatDarurat;
+        $kerabatDarurat->email = $request->id;
+        $kerabatDarurat->hubungan = $request->hubungan;
+        $kerabatDarurat->nama = $request->nama;
+        $kerabatDarurat->gender = $request->gender;
+        $kerabatDarurat->telepon = $request->telepon;
+        $kerabatDarurat->alamat = $request->alamat;
+        $kerabatDarurat->save();
+
+        $kerabatDarurats = LokerKerabatDarurat::where('email', $kerabatDarurat->email)->get();
+
+        return response()->json([
+            'status' => 'Data kerabat darurat berhasil diperbaharui',
+            'kerabat_darurats' => $kerabatDarurats
+        ]);
+    }
+
+    public function kerabatDaruratDelete($id)
+    {
+        $kerabatDarurat = LokerKerabatDarurat::find($id);
+        $kerabatDarurat->delete();
+
+        $kerabatDarurats = LokerKerabatDarurat::where('email', $kerabatDarurat->email)->get();
+
+        return response()->json([
+            'status' => 'Data kerabat darurat berhasil dihapus',
+            'kerabat_darurats' => $kerabatDarurats
         ]);
     }
 }

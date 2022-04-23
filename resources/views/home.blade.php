@@ -94,8 +94,6 @@
                                 {{-- biodata --}}
                                 <div class="active tab-pane" id="biodata">
                                     <form id="biodata_form">
-
-
                                         <div class="row" id="biodata_data">
                                             {{-- data di jquery --}}
                                         </div>
@@ -112,6 +110,7 @@
 
                                     <hr>
 
+                                    {{-- sebelum menikah --}}
                                     <div class="card bg-light">
                                         <div class="card-header">
                                             <span class="font-weight-bold">Keluarga Sebelum Menikah</span>
@@ -198,7 +197,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row mb-5">
+                                                        <div class="row">
                                                             <div class="col-md-6">
                                                                 <button class="btn btn-primary btn-sm btn-sebelum-menikah-spinner d-none" disabled style="width: 130px;">
                                                                     <span class="spinner-grow spinner-grow-sm"></span>
@@ -231,6 +230,233 @@
                                                     </thead>
                                                     <tbody id="data_sebelum_menikah">
                                                         {{-- sebelum menikah data di jquery --}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- setelah menikah --}}
+                                    <div class="card bg-light">
+                                        <div class="card-header">
+                                            <span class="font-weight-bold">Keluarga Setelah Menikah</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>
+                                                <button class="btn btn-primary btn-sm px-3" type="button" data-toggle="collapse" data-target="#formInputSetelahMenikah" aria-expanded="false" aria-controls="formInputSetelahMenikah">
+                                                    <i class="fas fa-plus"></i> Tambah Data
+                                                </button>
+                                            </p>
+                                            <div class="collapse" id="formInputSetelahMenikah">
+                                                <div class="card card-body">
+                                                    <form id="setelah_menikah_form">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="setelah_menikah_hubungan" class="col-form-label col-form-label-sm">Hubungan</label>
+                                                                    <select name="setelah_menikah_hubungan" id="setelah_menikah_hubungan" class="form-control form-control-sm">
+                                                                        <option value="">--Pilih Hubungan--</option>
+                                                                        <option value="ISTRI">ISTRI</option>
+                                                                        <option value="ANAK">ANAK</option>
+                                                                        <option value="AYAH">AYAH</option>
+                                                                        <option value="IBU">IBU</option>
+                                                                        <option value="SDR LAKI - LAKI">SDR LAKI - LAKI</option>
+                                                                        <option value="SDR PEREMPUAN">SDR PEREMPUAN</option>
+                                                                        <option value="KAKEK">KAKEK</option>
+                                                                        <option value="NENEK">NENEK</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="setelah_menikah_nama" class="col-form-label col-form-label-sm">Nama</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="setelah_menikah_nama"
+                                                                        name="setelah_menikah_nama"
+                                                                        maxlength="30"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="setelah_menikah_tempat_lahir" class="col-form-label col-form-label-sm">Tempat Lahir</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="setelah_menikah_tempat_lahir"
+                                                                        name="setelah_menikah_tempat_lahir"
+                                                                        maxlength="30"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="setelah_menikah_tanggal_lahir" class="col-form-label col-form-label-sm">Tanggal Lahir</label>
+                                                                    <input
+                                                                        type="date"
+                                                                        class="form-control form-control-sm"
+                                                                        id="setelah_menikah_tanggal_lahir"
+                                                                        name="setelah_menikah_tanggal_lahir">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="setelah_menikah_pekerjaan" class="col-form-label col-form-label-sm">Pekerjaan Terakhir</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="setelah_menikah_pekerjaan"
+                                                                        name="setelah_menikah_pekerjaan"
+                                                                        maxlength="30"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                    <small id="pekerjaan_help" class="form-text text-muted">Isi strip (-) jika tidak ada</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <button class="btn btn-primary btn-sm btn-setelah-menikah-spinner d-none" disabled style="width: 130px;">
+                                                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                                                    Loading...
+                                                                </button>
+                                                                <button
+                                                                    type="submit"
+                                                                    class="btn btn-primary btn-sm btn-setelah-menikah-save"
+                                                                    style="width: 130px;">
+                                                                        <i class="fas fa-save"></i> Simpan
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div style="overflow-x: auto;">
+                                                <table id="tabel_setelah_menikah" class="table table-bordered table-striped" style="font-size: 14px; width: 100%;">
+                                                    <thead>
+                                                        <tr class="bg-primary">
+                                                            <th class="text-center">Hubungan</th>
+                                                            <th class="text-center">Nama</th>
+                                                            <th class="text-center">Tempat Lahir</th>
+                                                            <th class="text-center">Tanggal Lahir</th>
+                                                            <th class="text-center">Pekerjaan Terakhir</th>
+                                                            <th class="text-center">Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="data_setelah_menikah">
+                                                        {{-- setelah menikah data di jquery --}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- kerabat darurat --}}
+                                    <div class="card bg-light">
+                                        <div class="card-header">
+                                            <span class="font-weight-bold">Kerabat Darurat</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>
+                                                <button class="btn btn-primary btn-sm px-3" type="button" data-toggle="collapse" data-target="#formInputKerabatDarurat" aria-expanded="false" aria-controls="formInputKerabatDarurat">
+                                                    <i class="fas fa-plus"></i> Tambah Data
+                                                </button>
+                                            </p>
+                                            <div class="collapse" id="formInputKerabatDarurat">
+                                                <div class="card card-body">
+                                                    <form id="kerabat_darurat_form">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="kerabat_darurat_hubungan" class="col-form-label col-form-label-sm">Hubungan</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="kerabat_darurat_hubungan"
+                                                                        name="kerabat_darurat_hubungan"
+                                                                        maxlength="30"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="kerabat_darurat_nama" class="col-form-label col-form-label-sm">Nama</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="kerabat_darurat_nama"
+                                                                        name="kerabat_darurat_nama"
+                                                                        maxlength="50"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="kerabat_darurat_jenis_kelamin" class="col-form-label col-form-label-sm">Jenis Kelamin</label>
+                                                                    <select name="kerabat_darurat_jenis_kelamin" id="kerabat_darurat_jenis_kelamin" class="form-control form-control-sm">
+                                                                        <option value="">--Pilih Jenis Kelamin--</option>
+                                                                        <option value="l">Laki - laki</option>
+                                                                        <option value="p">Perempuan</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="kerabat_darurat_telepon" class="col-form-label col-form-label-sm">Telepon</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="kerabat_darurat_telepon"
+                                                                        name="kerabat_darurat_telepon"
+                                                                        maxlength="15">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="kerabat_darurat_alamat" class="col-form-label col-form-label-sm">Alamat</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control form-control-sm"
+                                                                        id="kerabat_darurat_alamat"
+                                                                        name="kerabat_darurat_alamat"
+                                                                        onkeyup="this.value = this.value.toUpperCase()">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <button class="btn btn-primary btn-sm btn-kerabat-darurat-spinner d-none" disabled style="width: 130px;">
+                                                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                                                    Loading...
+                                                                </button>
+                                                                <button
+                                                                    type="submit"
+                                                                    class="btn btn-primary btn-sm btn-kerabat-darurat-save"
+                                                                    style="width: 130px;">
+                                                                        <i class="fas fa-save"></i> Simpan
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div style="overflow-x: auto;">
+                                                <table id="tabel_kerabat_darurat" class="table table-bordered table-striped" style="font-size: 14px; width: 100%;">
+                                                    <thead>
+                                                        <tr class="bg-primary">
+                                                            <th class="text-center">Hubungan</th>
+                                                            <th class="text-center">Nama</th>
+                                                            <th class="text-center">Jenis Kelamin</th>
+                                                            <th class="text-center">Telepon</th>
+                                                            <th class="text-center">Alamat</th>
+                                                            <th class="text-center">Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="data_kerabat_darurat">
+                                                        {{-- kerabat darurat data di jquery --}}
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -682,7 +908,7 @@ $(document).ready(function () {
                             "<td class=\"text-center\">" + value.hubungan + "</td>" +
                             "<td class=\"text-center\">" + value.nama + "</td>" +
                             "<td class=\"text-center\">" + value.usia + "</td>" +
-                            "<td class=\"text-center\">" + value.gender + "</td>" +
+                            "<td class=\"text-center\">" + (value.gender == 'l' ? 'Laki-laki' : 'Perempuan') + "</td>" +
                             "<td class=\"text-center\">" + value.pendidikan + "</td>" +
                             "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
                             "<td class=\"text-center\">" +
@@ -738,7 +964,7 @@ $(document).ready(function () {
                                 "<td class=\"text-center\">" + value.hubungan + "</td>" +
                                 "<td class=\"text-center\">" + value.nama + "</td>" +
                                 "<td class=\"text-center\">" + value.usia + "</td>" +
-                                "<td class=\"text-center\">" + value.gender + "</td>" +
+                                "<td class=\"text-center\">" + (value.gender == 'l' ? 'Laki-laki' : 'Perempuan') + "</td>" +
                                 "<td class=\"text-center\">" + value.pendidikan + "</td>" +
                                 "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
                                 "<td class=\"text-center\">" +
@@ -808,7 +1034,7 @@ $(document).ready(function () {
                                 "<td class=\"text-center\">" + value.hubungan + "</td>" +
                                 "<td class=\"text-center\">" + value.nama + "</td>" +
                                 "<td class=\"text-center\">" + value.usia + "</td>" +
-                                "<td class=\"text-center\">" + value.gender + "</td>" +
+                                "<td class=\"text-center\">" + (value.gender == 'l' ? 'Laki-laki' : 'Perempuan') + "</td>" +
                                 "<td class=\"text-center\">" + value.pendidikan + "</td>" +
                                 "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
                                 "<td class=\"text-center\">" +
@@ -824,6 +1050,362 @@ $(document).ready(function () {
                     Toast.fire({
                         icon: 'success',
                         title: 'Data sebelum menikah berhasil dihapus'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
+    });
+
+    // setelah menikah
+    setelahMenikah();
+    function setelahMenikah() {
+        var id = $('#id').val();
+        var url = '{{ route("profile.setelah_menikah", ":id") }}';
+        url = url.replace(':id', id );
+
+        $.ajax({
+            url:url,
+            type: 'GET',
+            success: function(response) {
+                var setelah_menikah_data = "";
+
+                if (response.setelah_menikahs.length == 0) {
+                    setelah_menikah_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\" colspan=\"6\">Kosong</td>";
+                        "</tr>";
+                } else {
+                    $.each(response.setelah_menikahs, function(index, value) {
+                        setelah_menikah_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                            "<td class=\"text-center\">" + value.nama + "</td>" +
+                            "<td class=\"text-center\">" + value.tempat_lahir + "</td>" +
+                            "<td class=\"text-center\">" + value.tanggal_lahir + "</td>" +
+                            "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
+                            "<td class=\"text-center\">" +
+                                "<button class=\"setelah_menikah_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                        "<i class=\"fa fa-trash\"></i>" +
+                                "</button>" +
+                            "</td>" +
+                        "</tr>";
+                    });
+                }
+                $('#data_setelah_menikah').append(setelah_menikah_data);
+            }
+        });
+    }
+
+    $('#setelah_menikah_form').submit(function(e) {
+        e.preventDefault();
+        if ($('#setelah_menikah_hubungan').val() == "" || $('#setelah_menikah_nama').val() == "" || $('#setelah_menikah_tempat_lahir').val() == "" || $('#setelah_menikah_tanggal_lahir').val() == "" || $('#setelah_menikah_pekerjaan').val() == "") {
+            alert('Formulir tidak boleh kosong');
+        } else {
+            $('#data_setelah_menikah').empty();
+
+            var formData = {
+                id: $('#id').val(),
+                hubungan: $('#setelah_menikah_hubungan').val(),
+                nama: $('#setelah_menikah_nama').val(),
+                tempat_lahir: $('#setelah_menikah_tempat_lahir').val(),
+                tanggal_lahir: $('#setelah_menikah_tanggal_lahir').val(),
+                pekerjaan: $('#setelah_menikah_pekerjaan').val()
+            }
+
+            $.ajax({
+                url: "{{ URL::route('profile.setelah_menikah_store') }}",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    $('.btn-setelah-menikah-spinner').removeClass('d-none');
+                    $('.btn-setelah-menikah-save').addClass('d-none');
+                },
+                success: function(response) {
+                    var setelah_menikah_data = "";
+
+                    if (response.setelah_menikahs.length == 0) {
+                        setelah_menikah_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"6\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.setelah_menikahs, function(index, value) {
+                            setelah_menikah_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.tempat_lahir + "</td>" +
+                                "<td class=\"text-center\">" + value.tanggal_lahir + "</td>" +
+                                "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"setelah_menikah_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_setelah_menikah').append(setelah_menikah_data);
+
+                    // empty value
+                    $('#setelah_menikah_hubungan').val("");
+                    $('#setelah_menikah_nama').val("");
+                    $('#setelah_menikah_tempat_lahir').val("");
+                    $('#setelah_menikah_tanggal_lahir').val("");
+                    $('#setelah_menikah_pekerjaan').val("");
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data setelah menikah berhasil diperbaharui'
+                    });
+
+                    setTimeout(() => {
+                        $('.btn-setelah-menikah-spinner').addClass('d-none');
+                        $('.btn-setelah-menikah-save').removeClass('d-none');
+                    }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        }
+    });
+
+    $('body').on('click', '.setelah_menikah_btn_delete', function() {
+        var result = confirm('Yakin akan dihapus?');
+        if (result) {
+            $('#data_setelah_menikah').empty();
+
+            var id = $(this).attr('data-id');
+            var url = '{{ route("profile.setelah_menikah_delete", ":id") }}';
+            url = url.replace(':id', id );
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    var setelah_menikah_data = "";
+
+                    if (response.setelah_menikahs.length == 0) {
+                        setelah_menikah_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"6\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.setelah_menikahs, function(index, value) {
+                            setelah_menikah_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.tempat_lahir + "</td>" +
+                                "<td class=\"text-center\">" + value.tanggal_lahir + "</td>" +
+                                "<td class=\"text-center\">" + value.pekerjaan + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"setelah_menikah_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_setelah_menikah').append(setelah_menikah_data);
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data setelah menikah berhasil dihapus'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
+    });
+
+    // kerabat darurat
+    kerabatDarurat();
+    function kerabatDarurat() {
+        var id = $('#id').val();
+        var url = '{{ route("profile.kerabat_darurat", ":id") }}';
+        url = url.replace(':id', id );
+
+        $.ajax({
+            url:url,
+            type: 'GET',
+            success: function(response) {
+                var kerabat_darurat_data = "";
+
+                if (response.kerabat_darurats.length == 0) {
+                    kerabat_darurat_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\" colspan=\"6\">Kosong</td>";
+                        "</tr>";
+                } else {
+                    $.each(response.kerabat_darurats, function(index, value) {
+                        kerabat_darurat_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                            "<td class=\"text-center\">" + value.nama + "</td>" +
+                            "<td class=\"text-center\">" + (value.gender == 'l' ? 'Laki-laki' : 'Perempuan') + "</td>" +
+                            "<td class=\"text-center\">" + value.telepon + "</td>" +
+                            "<td class=\"text-center\">" + value.alamat + "</td>" +
+                            "<td class=\"text-center\">" +
+                                "<button class=\"kerabat_darurat_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                        "<i class=\"fa fa-trash\"></i>" +
+                                "</button>" +
+                            "</td>" +
+                        "</tr>";
+                    });
+                }
+                $('#data_kerabat_darurat').append(kerabat_darurat_data);
+            }
+        });
+    }
+
+    $('#kerabat_darurat_form').submit(function(e) {
+        e.preventDefault();
+        if ($('#kerabat_darurat_hubungan').val() == "" || $('#kerabat_darurat_nama').val() == "" || $('#kerabat_darurat_jenis_kelamin').val() == "" || $('#kerabat_darurat_telepon').val() == "" || $('#kerabat_darurat_alamat').val() == "") {
+            alert('Formulir tidak boleh kosong');
+        } else {
+            $('#data_kerabat_darurat').empty();
+
+            var formData = {
+                id: $('#id').val(),
+                hubungan: $('#kerabat_darurat_hubungan').val(),
+                nama: $('#kerabat_darurat_nama').val(),
+                gender: $('#kerabat_darurat_jenis_kelamin').val(),
+                telepon: $('#kerabat_darurat_telepon').val(),
+                alamat: $('#kerabat_darurat_alamat').val()
+            }
+
+            $.ajax({
+                url: "{{ URL::route('profile.kerabat_darurat_store') }}",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    $('.btn-kerabat-darurat-spinner').removeClass('d-none');
+                    $('.btn-kerabat-darurat-save').addClass('d-none');
+                },
+                success: function(response) {
+                    var kerabat_darurat_data = "";
+
+                    if (response.kerabat_darurats.length == 0) {
+                        kerabat_darurat_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"6\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.kerabat_darurats, function(index, value) {
+                            kerabat_darurat_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + (value.gender == 'l' ? 'Laki-laki' : 'Perempuan') + "</td>" +
+                                "<td class=\"text-center\">" + value.telepon + "</td>" +
+                                "<td class=\"text-center\">" + value.alamat + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"kerabat_darurat_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_kerabat_darurat').append(kerabat_darurat_data);
+
+                    // empty value
+                    $('#kerabat_darurat_hubungan').val("");
+                    $('#kerabat_darurat_nama').val("");
+                    $('#kerabat_darurat_jenis_kelamin').val("");
+                    $('#kerabat_darurat_tanggal_telepon').val("");
+                    $('#kerabat_darurat_alamat').val("");
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data kerabat darurat berhasil diperbaharui'
+                    });
+
+                    setTimeout(() => {
+                        $('.btn-kerabat-darurat-spinner').addClass('d-none');
+                        $('.btn-kerabat-darurat-save').removeClass('d-none');
+                    }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        }
+    });
+
+    $('body').on('click', '.kerabat_darurat_btn_delete', function() {
+        var result = confirm('Yakin akan dihapus?');
+        if (result) {
+            $('#data_kerabat_darurat').empty();
+
+            var id = $(this).attr('data-id');
+            var url = '{{ route("profile.kerabat_darurat_delete", ":id") }}';
+            url = url.replace(':id', id );
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    var kerabat_darurat_data = "";
+
+                    if (response.kerabat_darurats.length == 0) {
+                        kerabat_darurat_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"6\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.kerabat_darurats, function(index, value) {
+                            kerabat_darurat_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.hubungan + "</td>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + (value.gender == 'l' ? 'Laki-laki' : 'Perempuan') + "</td>" +
+                                "<td class=\"text-center\">" + value.telepon + "</td>" +
+                                "<td class=\"text-center\">" + value.alamat + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"kerabat_darurat_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_kerabat_darurat').append(kerabat_darurat_data);
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data kerabat darurat berhasil dihapus'
                     });
                 },
                 error: function(xhr, status, error) {
