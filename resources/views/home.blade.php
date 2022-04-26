@@ -463,13 +463,200 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{-- media sosial --}}
+                                <div class="tab-pane" id="medsos">
+                                    <p>
+                                        <button class="btn btn-primary btn-sm px-3" type="button" data-toggle="collapse" data-target="#formInputMedsos" aria-expanded="false" aria-controls="formInputMedsos">
+                                            <i class="fas fa-plus"></i> Tambah Data
+                                        </button>
+                                    </p>
+                                    <div class="collapse" id="formInputMedsos">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <form id="medsos_form">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col">
+                                                            <div class="form-group">
+                                                                <label for="nama_medsos" class="col-form-label col-form-label-sm">Nama Media Sosial</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="nama_medsos"
+                                                                    name="nama_medsos"
+                                                                    onkeyup="this.value = this.value.toUpperCase()">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col">
+                                                            <div class="form-group">
+                                                                <label for="nama_akun" class="col-form-label col-form-label-sm">Nama Akun</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="nama_akun"
+                                                                    name="nama_akun">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <button class="btn btn-primary btn-sm btn-medsos-spinner d-none" disabled style="width: 130px;">
+                                                                <span class="spinner-grow spinner-grow-sm"></span>
+                                                                Loading...
+                                                            </button>
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-primary btn-sm btn-medsos-save"
+                                                                style="width: 130px;">
+                                                                    <i class="fas fa-save"></i> Simpan
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div style="overflow-x: auto;">
+                                        <table id="tabel_medsos" class="table table-bordered table-striped" style="font-size: 14px; width: 100%;">
+                                            <thead>
+                                                <tr class="bg-primary">
+                                                    <th class="text-center">Nama Media Sosial</th>
+                                                    <th class="text-center">Nama Akun</th>
+                                                    <th class="text-center">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="data_medsos">
+                                                {{-- medsos data di jquery --}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                                 {{-- pendidikan --}}
                                 <div class="tab-pane" id="pendidikan">
-                                    <form id="pendidikan_form">
-                                        <div class="row">
-                                            b
+                                    <p>
+                                        <button class="btn btn-primary btn-sm px-3" type="button" data-toggle="collapse" data-target="#formInputPendidikan" aria-expanded="false" aria-controls="formInputPendidikan">
+                                            <i class="fas fa-plus"></i> Tambah Data
+                                        </button>
+                                    </p>
+                                    <div class="collapse" id="formInputPendidikan">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <form id="pendidikan_form">
+                                                    <div class="row">
+                                                        <form id="pendidikan_form">
+                                                            <div class="row">
+                                                                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                    <div class="form-group">
+                                                                        <label for="pendidikan_tingkat" class="col-form-label col-form-label-sm">Tingkat</label>
+                                                                        <input
+                                                                            type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="pendidikan_tingkat"
+                                                                            name="pendidikan_tingkat"
+                                                                            maxlength="20"
+                                                                            onkeyup="this.value = this.value.toUpperCase()">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                    <div class="form-group">
+                                                                        <label for="pendidikan_nama" class="col-form-label col-form-label-sm">Nama Sekolah / Perguruan Tingi</label>
+                                                                        <input
+                                                                            type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="pendidikan_nama"
+                                                                            name="pendidikan_nama"
+                                                                            maxlength="30"
+                                                                            onkeyup="this.value = this.value.toUpperCase()">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                    <div class="form-group">
+                                                                        <label for="pendidikan_kota" class="col-form-label col-form-label-sm">Kota</label>
+                                                                        <input
+                                                                            type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="pendidikan_kota"
+                                                                            name="pendidikan_kota"
+                                                                            maxlength="30"
+                                                                            onkeyup="this.value = this.value.toUpperCase()">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                    <div class="form-group">
+                                                                        <label for="pendidikan_jurusan" class="col-form-label col-form-label-sm">Jurusan</label>
+                                                                        <input
+                                                                            type="text"
+                                                                            class="form-control form-control-sm"
+                                                                            id="pendidikan_jurusan"
+                                                                            name="pendidikan_jurusan"
+                                                                            maxlength="30"
+                                                                            onkeyup="this.value = this.value.toUpperCase()">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                    <div class="form-group">
+                                                                        <label for="pendidikan_tahun_masuk" class="col-form-label col-form-label-sm">Tahun Masuk</label>
+                                                                        <input
+                                                                            type="number"
+                                                                            class="form-control form-control-sm"
+                                                                            id="pendidikan_tahun_masuk"
+                                                                            name="pendidikan_tahun_masuk"
+                                                                            maxlength="4"
+                                                                            onkeyup="this.value = this.value.toUpperCase()">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                                                                    <div class="form-group">
+                                                                        <label for="pendidikan_tahun_lulus" class="col-form-label col-form-label-sm">Tahun Lulus</label>
+                                                                        <input
+                                                                            type="number"
+                                                                            class="form-control form-control-sm"
+                                                                            id="pendidikan_tahun_lulus"
+                                                                            name="pendidikan_tahun_lulus"
+                                                                            maxlength="4"
+                                                                            onkeyup="this.value = this.value.toUpperCase()">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <button class="btn btn-primary btn-sm btn-pendidikan-spinner d-none" disabled style="width: 130px;">
+                                                                        <span class="spinner-grow spinner-grow-sm"></span>
+                                                                        Loading...
+                                                                    </button>
+                                                                    <button
+                                                                        type="submit"
+                                                                        class="btn btn-primary btn-sm btn-pendidikan-save"
+                                                                        style="width: 130px;">
+                                                                            <i class="fas fa-save"></i> Simpan
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
+
+                                    <div style="overflow-x: auto;">
+                                        <table id="tabel_pendidikan" class="table table-bordered table-striped" style="font-size: 14px; width: 100%;">
+                                            <thead>
+                                                <tr class="bg-primary">
+                                                    <th class="text-center">Tingkat</th>
+                                                    <th class="text-center">Nama Sekolah</th>
+                                                    <th class="text-center">Kota</th>
+                                                    <th class="text-center">Jurusan</th>
+                                                    <th class="text-center">Tahun Masuk</th>
+                                                    <th class="text-center">Tahun Lulus</th>
+                                                    <th class="text-center">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="data_pendidikan">
+                                                {{-- pendidikan data di jquery --}}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 {{-- penghargaan --}}
                                 <div class="tab-pane" id="penghargaan">
@@ -1406,6 +1593,351 @@ $(document).ready(function () {
                     Toast.fire({
                         icon: 'success',
                         title: 'Data kerabat darurat berhasil dihapus'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
+    });
+
+    // medsos
+    medsos();
+    function medsos() {
+        var id = $('#id').val();
+        var url = '{{ route("profile.medsos", ":id") }}';
+        url = url.replace(':id', id );
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(response) {
+                var medsos_data = "";
+
+                if (response.medsos.length == 0) {
+                    medsos_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                        "</tr>";
+                } else {
+                    $.each(response.medsos, function(index, value) {
+                        medsos_data += "" +
+                                "<tr>" +
+                                    "<td class=\"text-center\">" + value.nama_medsos + "</td>" +
+                                    "<td class=\"text-center\">" + value.nama_akun + "</td>" +
+                                    "<td class=\"text-center\">" +
+                                        "<button class=\"medsos_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                                "<i class=\"fa fa-trash\"></i>" +
+                                        "</button>" +
+                                    "</td>" +
+                                "</tr>";
+                    });
+                }
+                $('#data_medsos').append(medsos_data);
+            }
+        });
+    }
+
+    $('#medsos_form').submit(function(e) {
+        e.preventDefault();
+        if ($('#nama_medsos').val() == "" || $('#nama_akun').val() == "") {
+            alert('Formulir tidak boleh kosong');
+        } else {
+            $('#data_medsos').empty();
+
+            var formData = {
+                id: $('#id').val(),
+                nama_medsos: $('#nama_medsos').val(),
+                nama_akun: $('#nama_akun').val()
+            }
+
+            $.ajax({
+                url: "{{ URL::route('profile.medsos_store') }}",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    $('.btn-medsos-spinner').removeClass('d-none');
+                    $('.btn-medsos-save').addClass('d-none');
+                },
+                success: function(response) {
+                    var medsos_data = "";
+
+                    if (response.medsoss.length == 0) {
+                        medsos_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.medsoss, function(index, value) {
+                            medsos_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.nama_medsos + "</td>" +
+                                "<td class=\"text-center\">" + value.nama_akun + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"medsos_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_medsos').append(medsos_data);
+
+                    $('#nama_medsos').val("");
+                    $('#nama_akun').val("");
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Medsos berhasil diperbaharui'
+                    });
+
+                    setTimeout(() => {
+                        $('.btn-medsos-spinner').addClass('d-none');
+                        $('.btn-medsos-save').removeClass('d-none');
+                    }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        }
+    });
+
+    $('body').on('click', '.medsos_btn_delete', function() {
+        var result = confirm('Yakin akan dihapus?');
+        if (result) {
+            $('#data_medsos').empty();
+
+            var id = $(this).attr('data-id');
+            var url = '{{ route("profile.medsos_delete", ":id") }}';
+            url = url.replace(':id', id );
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    var medsos_data = "";
+
+                    if (response.medsoss.length == 0) {
+                        medsos_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.medsoss, function(index, value) {
+                            medsos_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.nama_medsos + "</td>" +
+                                "<td class=\"text-center\">" + value.nama_akun + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"medsos_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_medsos').append(medsos_data);
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Medsos behasil dihapus'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
+    });
+
+    // pendidikan
+    pendidikan();
+    function pendidikan() {
+        var id = $('#id').val();
+        var url = '{{ route("profile.pendidikan", ":id") }}';
+        url = url.replace(':id', id );
+
+        $.ajax({
+            url:url,
+            type: 'GET',
+            success: function(response) {
+                var pendidikan_data = "";
+
+                if (response.pendidikans.length == 0) {
+                    pendidikan_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\" colspan=\"7\">Kosong</td>";
+                        "</tr>";
+                } else {
+                    $.each(response.pendidikans, function(index, value) {
+                        pendidikan_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\">" + value.tingkat + "</td>" +
+                            "<td class=\"text-center\">" + value.nama + "</td>" +
+                            "<td class=\"text-center\">" + value.kota + "</td>" +
+                            "<td class=\"text-center\">" + value.jurusan + "</td>" +
+                            "<td class=\"text-center\">" + value.tahun_masuk + "</td>" +
+                            "<td class=\"text-center\">" + value.tahun_lulus + "</td>" +
+                            "<td class=\"text-center\">" +
+                                "<button class=\"pendidikan_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                        "<i class=\"fa fa-trash\"></i>" +
+                                "</button>" +
+                            "</td>" +
+                        "</tr>";
+                    });
+                }
+                $('#data_pendidikan').append(pendidikan_data);
+            }
+        });
+    }
+
+    $('#pendidikan_form').submit(function(e) {
+        e.preventDefault();
+        if ($('#pendidikan_tingkat').val() == "" || $('#pendidikan_nama').val() == "" || $('#pendidikan_kota').val() == "" || $('#pendidikan_jurusan').val() == "" || $('#pendidikan_tahun_masuk').val() == "" || $('#pendidikan_tahun_lulus').val() == "") {
+            alert('Formulir tidak boleh kosong');
+        } else {
+            $('#data_pendidikan').empty();
+
+            var formData = {
+                id: $('#id').val(),
+                tingkat: $('#pendidikan_tingkat').val(),
+                nama: $('#pendidikan_nama').val(),
+                kota: $('#pendidikan_kota').val(),
+                jurusan: $('#pendidikan_jurusan').val(),
+                tahun_masuk: $('#pendidikan_tahun_masuk').val(),
+                tahun_lulus: $('#pendidikan_tahun_lulus').val()
+            }
+
+            $.ajax({
+                url: "{{ URL::route('profile.pendidikan_store') }}",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    $('.btn-pendidikan-spinner').removeClass('d-none');
+                    $('.btn-pendidikan-save').addClass('d-none');
+                },
+                success: function(response) {
+                    var pendidikan_data = "";
+
+                    if (response.pendidikans.length == 0) {
+                        pendidikan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"7\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.pendidikans, function(index, value) {
+                            pendidikan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.tingkat + "</td>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.kota + "</td>" +
+                                "<td class=\"text-center\">" + value.jurusan + "</td>" +
+                                "<td class=\"text-center\">" + value.tahun_masuk + "</td>" +
+                                "<td class=\"text-center\">" + value.tahun_lulus + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"pendidikan_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_pendidikan').append(pendidikan_data);
+
+                    // empty value
+                    $('#pendidikan_tingkat').val("");
+                    $('#pendidikan_nama').val("");
+                    $('#pendidikan_kota').val("");
+                    $('#pendidikan_jurusan').val("");
+                    $('#pendidikan_tahun_masuk').val("");
+                    $('#pendidikan_tahun_lulus').val("");
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data pendidikan berhasil diperbaharui'
+                    });
+
+                    setTimeout(() => {
+                        $('.btn-pendidikan-spinner').addClass('d-none');
+                        $('.btn-pendidikan-save').removeClass('d-none');
+                    }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        }
+    });
+
+    $('body').on('click', '.pendidikan_btn_delete', function() {
+        var result = confirm('Yakin akan dihapus?');
+        if (result) {
+            $('#data_pendidikan').empty();
+
+            var id = $(this).attr('data-id');
+            var url = '{{ route("profile.pendidikan_delete", ":id") }}';
+            url = url.replace(':id', id );
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    var pendidikan_data = "";
+
+                    if (response.pendidikans.length == 0) {
+                        pendidikan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"7\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.pendidikans, function(index, value) {
+                            pendidikan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.tingkat + "</td>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.kota + "</td>" +
+                                "<td class=\"text-center\">" + value.jurusan + "</td>" +
+                                "<td class=\"text-center\">" + value.tahun_masuk + "</td>" +
+                                "<td class=\"text-center\">" + value.tahun_lulus + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"pendidikan_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_pendidikan').append(pendidikan_data);
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data pendidikan berhasil diperbaharui'
                     });
                 },
                 error: function(xhr, status, error) {

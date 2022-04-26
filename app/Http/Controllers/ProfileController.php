@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\LokerBiodata;
 use App\Models\LokerKerabatDarurat;
+use App\Models\LokerMedsos;
+use App\Models\LokerPendidikan;
 use App\Models\LokerSebelumMenikah;
 use App\Models\LokerSetelahMenikah;
 use App\Models\LokerUser;
+use App\Models\Pendidikan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -239,6 +242,86 @@ class ProfileController extends Controller
         return response()->json([
             'status' => 'Data kerabat darurat berhasil dihapus',
             'kerabat_darurats' => $kerabatDarurats
+        ]);
+    }
+
+    public function medsos($id)
+    {
+        $medsos = LokerMedsos::where('email', $id)->get();
+
+        return response()->json([
+            'medsos' => $medsos
+        ]);
+    }
+
+    public function medsosStore(Request $request)
+    {
+        $medsos = new LokerMedsos;
+        $medsos->email = $request->id;
+        $medsos->nama_medsos = $request->nama_medsos;
+        $medsos->nama_akun = $request->nama_akun;
+        $medsos->save();
+
+        $medsoss = LokerMedsos::where('email', $medsos->email)->get();
+
+        return response()->json([
+            'status' => 'Data media sosial berhasil ditambahkan',
+            'medsoss' => $medsoss
+        ]);
+    }
+
+    public function medsosDelete($id)
+    {
+        $medsos = LokerMedsos::find($id);
+        $medsos->delete();
+
+        $medsoss = LokerMedsos::where('email', $medsos->email)->get();
+
+        return response()->json([
+            'status' => 'Data media sosial berhasil dihapus',
+            'medsoss' => $medsoss
+        ]);
+    }
+
+    public function pendidikan($id)
+    {
+        $pendidikan = LokerPendidikan::where('email', $id)->get();
+
+        return response()->json([
+            'pendidikans' => $pendidikan
+        ]);
+    }
+
+    public function pendidikanStore(Request $request)
+    {
+        $pendidikan = new LokerPendidikan;
+        $pendidikan->email = $request->id;
+        $pendidikan->tingkat = $request->tingkat;
+        $pendidikan->nama = $request->nama;
+        $pendidikan->kota = $request->kota;
+        $pendidikan->jurusan = $request->jurusan;
+        $pendidikan->tahun_masuk = $request->tahun_masuk;
+        $pendidikan->tahun_lulus = $request->tahun_lulus;
+        $pendidikan->save();
+
+        $pendidikans = LokerPendidikan::where('email', $pendidikan->email)->get();
+
+        return response()->json([
+            'status' => 'Data pendidikan berhasil diperbaharui',
+            'pendidikans' => $pendidikans
+        ]);
+    }
+
+    public function pendidikanDelete($id)
+    {
+        $pendidikan = LokerPendidikan::find($id);
+        $pendidikan->delete();
+
+        $pendidikans = LokerPendidikan::where('email', $pendidikan->email)->get();
+
+        return response()->json([
+            'status' => 'Data pendidikan berhasil dihapus',
+            'pendidikans' => $pendidikans
         ]);
     }
 }
