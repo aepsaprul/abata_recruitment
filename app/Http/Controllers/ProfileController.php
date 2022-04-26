@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\LokerBiodata;
 use App\Models\LokerKerabatDarurat;
 use App\Models\LokerMedsos;
+use App\Models\LokerOrganisasi;
 use App\Models\LokerPendidikan;
+use App\Models\LokerPenghargaan;
 use App\Models\LokerSebelumMenikah;
 use App\Models\LokerSetelahMenikah;
 use App\Models\LokerUser;
@@ -322,6 +324,83 @@ class ProfileController extends Controller
         return response()->json([
             'status' => 'Data pendidikan berhasil dihapus',
             'pendidikans' => $pendidikans
+        ]);
+    }
+
+    public function penghargaan($id)
+    {
+        $penghargaan = LokerPenghargaan::where('email', $id)->get();
+
+        return response()->json([
+            'penghargaans' => $penghargaan
+        ]);
+    }
+
+    public function penghargaanStore(Request $request)
+    {
+        $penghargaan = new LokerPenghargaan;
+        $penghargaan->email = $request->id;
+        $penghargaan->nama = $request->nama;
+        $penghargaan->tahun = $request->tahun;
+        $penghargaan->save();
+
+        $penghargaans = LokerPenghargaan::where('email', $penghargaan->email)->get();
+
+        return response()->json([
+            'status' => 'Data penghargaan berhasil diperbaharui',
+            'penghargaans' => $penghargaans
+        ]);
+    }
+
+    public function penghargaanDelete($id)
+    {
+        $penghargaan = LokerPenghargaan::find($id);
+        $penghargaan->delete();
+
+        $penghargaans = LokerPenghargaan::where('email', $penghargaan->email)->get();
+
+        return response()->json([
+            'status' => 'Data penghargaan berhasil dihapus',
+            'penghargaans' => $penghargaans
+        ]);
+    }
+
+    public function organisasi($id)
+    {
+        $organisasi = LokerOrganisasi::where('email', $id)->get();
+
+        return response()->json([
+            'organisasis' => $organisasi
+        ]);
+    }
+
+    public function organisasiStore(Request $request)
+    {
+        $organisasi = new LokerOrganisasi;
+        $organisasi->email = $request->id;
+        $organisasi->nama = $request->nama;
+        $organisasi->jabatan = $request->jabatan;
+        $organisasi->masa_kerja = $request->masa_kerja;
+        $organisasi->save();
+
+        $organisasis = LokerOrganisasi::where('email', $organisasi->email)->get();
+
+        return response()->json([
+            'status' => 'Data organisasi berhasil diperbaharui',
+            'organisasis' => $organisasis
+        ]);
+    }
+
+    public function organisasiDelete($id)
+    {
+        $organisasi = LokerOrganisasi::find($id);
+        $organisasi->delete();
+
+        $organisasis = LokerOrganisasi::where('email', $organisasi->email)->get();
+
+        return response()->json([
+            'status' => 'Data organisasi berhasil dihapus',
+            'organisasis' => $organisasis
         ]);
     }
 }

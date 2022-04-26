@@ -660,19 +660,150 @@
                                 </div>
                                 {{-- penghargaan --}}
                                 <div class="tab-pane" id="penghargaan">
-                                    <form id="penghargaan_form">
-                                        <div class="row">
-                                            c
+                                    <p>
+                                        <button class="btn btn-primary btn-sm px-3" type="button" data-toggle="collapse" data-target="#formInputPenghargaan" aria-expanded="false" aria-controls="formInputPenghargaan">
+                                            <i class="fas fa-plus"></i> Tambah Data
+                                        </button>
+                                    </p>
+                                    <div class="collapse" id="formInputPenghargaan">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <form id="penghargaan_form">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col">
+                                                            <div class="form-group">
+                                                                <label for="penghargaan_nama" class="col-form-label col-form-label-sm">Nama Penghargaan</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="penghargaan_nama"
+                                                                    name="penghargaan_nama"
+                                                                    onkeyup="this.value = this.value.toUpperCase()">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col">
+                                                            <div class="form-group">
+                                                                <label for="penghargaan_tahun" class="col-form-label col-form-label-sm">Tahun</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="penghargaan_tahun"
+                                                                    name="penghargaan_tahun">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <button class="btn btn-primary btn-sm btn-penghargaan-spinner d-none" disabled style="width: 130px;">
+                                                                <span class="spinner-grow spinner-grow-sm"></span>
+                                                                Loading...
+                                                            </button>
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-primary btn-sm btn-penghargaan-save"
+                                                                style="width: 130px;">
+                                                                    <i class="fas fa-save"></i> Simpan
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
+
+                                    <div style="overflow-x: auto;">
+                                        <table id="tabel_penghargaan" class="table table-bordered table-striped" style="font-size: 14px; width: 100%;">
+                                            <thead>
+                                                <tr class="bg-primary">
+                                                    <th class="text-center">Nama Penghargaan</th>
+                                                    <th class="text-center">Tahun</th>
+                                                    <th class="text-center">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="data_penghargaan">
+                                                {{-- penghargaan data di jquery --}}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 {{-- organisasi --}}
                                 <div class="tab-pane" id="organisasi">
-                                    <form id="organisasi_form">
-                                        <div class="row">
-                                            c
+                                    <p>
+                                        <button class="btn btn-primary btn-sm px-3" type="button" data-toggle="collapse" data-target="#formInputOrganisasi" aria-expanded="false" aria-controls="formInputOrganisasi">
+                                            <i class="fas fa-plus"></i> Tambah Data
+                                        </button>
+                                    </p>
+                                    <div class="collapse" id="formInputOrganisasi">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <form id="organisasi_form">
+                                                    <div class="row">
+                                                        <div class="col-lg-4 col-md-4 col-12">
+                                                            <div class="form-group">
+                                                                <label for="organisasi_nama" class="col-form-label col-form-label-sm">Nama Organisasi</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="organisasi_nama"
+                                                                    name="organisasi_nama"
+                                                                    onkeyup="this.value = this.value.toUpperCase()">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-12">
+                                                            <div class="form-group">
+                                                                <label for="organisasi_jabatan" class="col-form-label col-form-label-sm">Jabatan</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="organisasi_jabatan"
+                                                                    name="organisasi_jabatan">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-12">
+                                                            <div class="form-group">
+                                                                <label for="organisasi_masa_kerja" class="col-form-label col-form-label-sm">Masa Kerja</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="organisasi_masa_kerja"
+                                                                    name="organisasi_masa_kerja">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <button class="btn btn-primary btn-sm btn-organisasi-spinner d-none" disabled style="width: 130px;">
+                                                                <span class="spinner-grow spinner-grow-sm"></span>
+                                                                Loading...
+                                                            </button>
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-primary btn-sm btn-organisasi-save"
+                                                                style="width: 130px;">
+                                                                    <i class="fas fa-save"></i> Simpan
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
+
+                                    <div style="overflow-x: auto;">
+                                        <table id="tabel_organisasi" class="table table-bordered table-striped" style="font-size: 14px; width: 100%;">
+                                            <thead>
+                                                <tr class="bg-primary">
+                                                    <th class="text-center">Nama Organisasi</th>
+                                                    <th class="text-center">Jabatan</th>
+                                                    <th class="text-center">Masa Kerja</th>
+                                                    <th class="text-center">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="data_organisasi">
+                                                {{-- organisasi data di jquery --}}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 {{-- riwayat_pekerjaan --}}
                                 <div class="tab-pane" id="riwayat_pekerjaan">
@@ -1938,6 +2069,335 @@ $(document).ready(function () {
                     Toast.fire({
                         icon: 'success',
                         title: 'Data pendidikan berhasil diperbaharui'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
+    });
+
+    // penghargaan
+    penghargaan();
+    function penghargaan() {
+        var id = $('#id').val();
+        var url = '{{ route("profile.penghargaan", ":id") }}';
+        url = url.replace(':id', id );
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(response) {
+                var penghargaan_data = "";
+
+                if (response.penghargaans.length == 0) {
+                    penghargaan_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                        "</tr>";
+                } else {
+                    $.each(response.penghargaans, function(index, value) {
+                        penghargaan_data += "" +
+                                "<tr>" +
+                                    "<td class=\"text-center\">" + value.nama + "</td>" +
+                                    "<td class=\"text-center\">" + value.tahun + "</td>" +
+                                    "<td class=\"text-center\">" +
+                                        "<button class=\"penghargaan_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                                "<i class=\"fa fa-trash\"></i>" +
+                                        "</button>" +
+                                    "</td>" +
+                                "</tr>";
+                    });
+                }
+                $('#data_penghargaan').append(penghargaan_data);
+            }
+        });
+    }
+
+    $('#penghargaan_form').submit(function(e) {
+        e.preventDefault();
+        if ($('#penghargaan_nama').val() == "" || $('#penghargaan_tahun').val() == "") {
+            alert('Formulir tidak boleh kosong');
+        } else {
+            $('#data_penghargaan').empty();
+
+            var formData = {
+                id: $('#id').val(),
+                nama: $('#penghargaan_nama').val(),
+                tahun: $('#penghargaan_tahun').val()
+            }
+
+            $.ajax({
+                url: "{{ URL::route('profile.penghargaan_store') }}",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    $('.btn-penghargaan-spinner').removeClass('d-none');
+                    $('.btn-penghargaan-save').addClass('d-none');
+                },
+                success: function(response) {
+                    var penghargaan_data = "";
+
+                    if (response.penghargaans.length == 0) {
+                        penghargaan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.penghargaans, function(index, value) {
+                            penghargaan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.tahun + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"penghargaan_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_penghargaan').append(penghargaan_data);
+
+                    $('#penghargaan_nama').val("");
+                    $('#penghargaan_tahun').val("");
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Penghargaan berhasil diperbaharui'
+                    });
+
+                    setTimeout(() => {
+                        $('.btn-penghargaan-spinner').addClass('d-none');
+                        $('.btn-penghargaan-save').removeClass('d-none');
+                    }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        }
+    });
+
+    $('body').on('click', '.penghargaan_btn_delete', function() {
+        var result = confirm('Yakin akan dihapus?');
+        if (result) {
+            $('#data_penghargaan').empty();
+
+            var id = $(this).attr('data-id');
+            var url = '{{ route("profile.penghargaan_delete", ":id") }}';
+            url = url.replace(':id', id );
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    var penghargaan_data = "";
+
+                    if (response.penghargaans.length == 0) {
+                        penghargaan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.penghargaans, function(index, value) {
+                            penghargaan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.tahun + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"penghargaan_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_penghargaan').append(penghargaan_data);
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Penghargaan behasil dihapus'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
+    });
+
+    // organisasi
+    organisasi();
+    function organisasi() {
+        var id = $('#id').val();
+        var url = '{{ route("profile.organisasi", ":id") }}';
+        url = url.replace(':id', id );
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(response) {
+                var organisasi_data = "";
+
+                if (response.organisasis.length == 0) {
+                    organisasi_data += "" +
+                        "<tr>" +
+                            "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                        "</tr>";
+                } else {
+                    $.each(response.organisasis, function(index, value) {
+                        organisasi_data += "" +
+                                "<tr>" +
+                                    "<td class=\"text-center\">" + value.nama + "</td>" +
+                                    "<td class=\"text-center\">" + value.jabatan + "</td>" +
+                                    "<td class=\"text-center\">" + value.masa_kerja + "</td>" +
+                                    "<td class=\"text-center\">" +
+                                        "<button class=\"organisasi_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                                "<i class=\"fa fa-trash\"></i>" +
+                                        "</button>" +
+                                    "</td>" +
+                                "</tr>";
+                    });
+                }
+                $('#data_organisasi').append(organisasi_data);
+            }
+        });
+    }
+
+    $('#organisasi_form').submit(function(e) {
+        e.preventDefault();
+        if ($('#organisasi_nama').val() == "" || $('#organisasi_jabatan').val() == "") {
+            alert('Formulir tidak boleh kosong');
+        } else {
+            $('#data_organisasi').empty();
+
+            var formData = {
+                id: $('#id').val(),
+                nama: $('#organisasi_nama').val(),
+                jabatan: $('#organisasi_jabatan').val(),
+                masa_kerja: $('#organisasi_masa_kerja').val()
+            }
+
+            $.ajax({
+                url: "{{ URL::route('profile.organisasi_store') }}",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    $('.btn-organisasi-spinner').removeClass('d-none');
+                    $('.btn-organisasi-save').addClass('d-none');
+                },
+                success: function(response) {
+                    var organisasi_data = "";
+
+                    if (response.organisasis.length == 0) {
+                        organisasi_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.organisasis, function(index, value) {
+                            organisasi_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.jabatan + "</td>" +
+                                "<td class=\"text-center\">" + value.masa_kerja + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"organisasi_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_organisasi').append(organisasi_data);
+
+                    $('#organisasi_nama').val("");
+                    $('#organisasi_jabatan').val("");
+                    $('#organisasi_masa_kerja').val("");
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Organisasi berhasil diperbaharui'
+                    });
+
+                    setTimeout(() => {
+                        $('.btn-organisasi-spinner').addClass('d-none');
+                        $('.btn-organisasi-save').removeClass('d-none');
+                    }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        }
+    });
+
+    $('body').on('click', '.organisasi_btn_delete', function() {
+        var result = confirm('Yakin akan dihapus?');
+        if (result) {
+            $('#data_organisasi').empty();
+
+            var id = $(this).attr('data-id');
+            var url = '{{ route("profile.organisasi_delete", ":id") }}';
+            url = url.replace(':id', id );
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    var organisasi_data = "";
+
+                    if (response.organisasis.length == 0) {
+                        organisasi_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.organisasis, function(index, value) {
+                            organisasi_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.nama + "</td>" +
+                                "<td class=\"text-center\">" + value.jabatan + "</td>" +
+                                "<td class=\"text-center\">" + value.masa_kerja + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"organisasi_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_organisasi').append(organisasi_data);
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Organisasi behasil dihapus'
                     });
                 },
                 error: function(xhr, status, error) {

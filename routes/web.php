@@ -53,4 +53,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('profile/{id}/pendidikan', [ProfileController::class, 'pendidikan'])->name('profile.pendidikan');
     Route::post('profile/pendidikan/store', [ProfileController::class, 'pendidikanStore'])->name('profile.pendidikan_store');
     Route::get('profile/{id}/pendidikan_delete', [ProfileController::class, 'pendidikanDelete'])->name('profile.pendidikan_delete');
+
+    // penghargaan
+    Route::get('profile/{id}/penghargaan', [ProfileController::class, 'penghargaan'])->name('profile.penghargaan');
+    Route::post('profile/penghargaan/store', [ProfileController::class, 'penghargaanStore'])->name('profile.penghargaan_store');
+    Route::get('profile/{id}/penghargaan_delete', [ProfileController::class, 'penghargaanDelete'])->name('profile.penghargaan_delete');
+
+    // organisasi
+    Route::get('profile/{id}/organisasi', [ProfileController::class, 'organisasi'])->name('profile.organisasi');
+    Route::post('profile/organisasi/store', [ProfileController::class, 'organisasiStore'])->name('profile.organisasi_store');
+    Route::get('profile/{id}/organisasi_delete', [ProfileController::class, 'organisasiDelete'])->name('profile.organisasi_delete');
 });
