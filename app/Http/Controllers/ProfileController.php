@@ -8,6 +8,7 @@ use App\Models\LokerMedsos;
 use App\Models\LokerOrganisasi;
 use App\Models\LokerPendidikan;
 use App\Models\LokerPenghargaan;
+use App\Models\LokerRiwayatPekerjaan;
 use App\Models\LokerSebelumMenikah;
 use App\Models\LokerSetelahMenikah;
 use App\Models\LokerUser;
@@ -401,6 +402,52 @@ class ProfileController extends Controller
         return response()->json([
             'status' => 'Data organisasi berhasil dihapus',
             'organisasis' => $organisasis
+        ]);
+    }
+
+    public function riwayatPekerjaan($id)
+    {
+        $riwayat_pekerjaan = LokerRiwayatPekerjaan::where('email', $id)->get();
+
+        return response()->json([
+            'riwayat_pekerjaans' => $riwayat_pekerjaan
+        ]);
+    }
+
+    public function riwayatPekerjaanStore(Request $request)
+    {
+        $riwayat_pekerjaan = new LokerRiwayatPekerjaan;
+        $riwayat_pekerjaan->email = $request->id;
+        $riwayat_pekerjaan->nama_perusahaan = $request->nama_perusahaan;
+        $riwayat_pekerjaan->jenis_industri = $request->jenis_industri;
+        $riwayat_pekerjaan->jabatan_awal = $request->jabatan_awal;
+        $riwayat_pekerjaan->jabatan_akhir = $request->jabatan_akhir;
+        $riwayat_pekerjaan->awal_bekerja = $request->awal_bekerja;
+        $riwayat_pekerjaan->akhir_bekerja = $request->akhir_bekerja;
+        $riwayat_pekerjaan->gaji_awal = $request->gaji_awal;
+        $riwayat_pekerjaan->gaji_akhir = $request->gaji_akhir;
+        $riwayat_pekerjaan->nama_atasan = $request->nama_atasan;
+        $riwayat_pekerjaan->alasan_berhenti = $request->alasan_berhenti;
+        $riwayat_pekerjaan->save();
+
+        $riwayat_pekerjaans = LokerRiwayatPekerjaan::where('email', $riwayat_pekerjaan->email)->get();
+
+        return response()->json([
+            'status' => 'Data riwayat_pekerjaan berhasil diperbaharui',
+            'riwayat_pekerjaans' => $riwayat_pekerjaans
+        ]);
+    }
+
+    public function riwayatPekerjaanDelete($id)
+    {
+        $riwayat_pekerjaan = LokerRiwayatPekerjaan::find($id);
+        $riwayat_pekerjaan->delete();
+
+        $riwayat_pekerjaans = LokerRiwayatPekerjaan::where('email', $riwayat_pekerjaan->email)->get();
+
+        return response()->json([
+            'status' => 'Data riwayat_pekerjaan berhasil dihapus',
+            'riwayat_pekerjaans' => $riwayat_pekerjaans
         ]);
     }
 }

@@ -63,4 +63,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('profile/{id}/organisasi', [ProfileController::class, 'organisasi'])->name('profile.organisasi');
     Route::post('profile/organisasi/store', [ProfileController::class, 'organisasiStore'])->name('profile.organisasi_store');
     Route::get('profile/{id}/organisasi_delete', [ProfileController::class, 'organisasiDelete'])->name('profile.organisasi_delete');
+
+    // riwayat pekerjaan
+    Route::get('profile/{id}/riwayat_pekerjaan', [ProfileController::class, 'riwayatPekerjaan'])->name('profile.riwayat_pekerjaan');
+    Route::post('profile/riwayat_pekerjaan/store', [ProfileController::class, 'riwayatPekerjaanStore'])->name('profile.riwayat_pekerjaan_store');
+    Route::get('profile/{id}/riwayat_pekerjaan_delete', [ProfileController::class, 'riwayatPekerjaanDelete'])->name('profile.riwayat_pekerjaan_delete');
 });

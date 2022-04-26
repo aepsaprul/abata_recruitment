@@ -807,11 +807,139 @@
                                 </div>
                                 {{-- riwayat_pekerjaan --}}
                                 <div class="tab-pane" id="riwayat_pekerjaan">
-                                    <form id="riwayat_pekerjaan_form">
-                                        <div class="row">
-                                            c
+                                    <p>
+                                        <button class="btn btn-primary btn-sm px-3" type="button" data-toggle="collapse" data-target="#formInputRiwayatPekerjaan" aria-expanded="false" aria-controls="formInputRiwayatPekerjaan">
+                                            <i class="fas fa-plus"></i> Tambah Data
+                                        </button>
+                                    </p>
+                                    <div class="collapse" id="formInputRiwayatPekerjaan">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <form id="riwayat_pekerjaan_form">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_nama_perusahaan" class="col-form-label col-form-label-sm">Nama Perusahaan</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_nama_perusahaan"
+                                                                    name="riwayat_pekerjaan_nama_perusahaan">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_jenis_industri" class="col-form-label col-form-label-sm">Jenis Industri</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_jenis_industri"
+                                                                    name="riwayat_pekerjaan_jenis_industri">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_jabatan_awal" class="col-form-label col-form-label-sm">Jabatan Awal</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_jabatan_awal"
+                                                                    name="riwayat_pekerjaan_jabatan_awal">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_jabatan_akhir" class="col-form-label col-form-label-sm">Jabatan Akhir</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_jabatan_akhir"
+                                                                    name="riwayat_pekerjaan_jabatan_akhir">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_awal_bekerja" class="col-form-label col-form-label-sm">Awal Bekerja</label>
+                                                                <input
+                                                                    type="date"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_awal_bekerja"
+                                                                    name="riwayat_pekerjaan_awal_bekerja">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_akhir_bekerja" class="col-form-label col-form-label-sm">Akhir Bekerja</label>
+                                                                <input
+                                                                    type="date"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_akhir_bekerja"
+                                                                    name="riwayat_pekerjaan_akhir_bekerja">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_gaji_awal" class="col-form-label col-form-label-sm">Gaji Awal</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_gaji_awal"
+                                                                    name="riwayat_pekerjaan_gaji_awal">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_gaji_akhir" class="col-form-label col-form-label-sm">Gaji Akhir</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_gaji_akhir"
+                                                                    name="riwayat_pekerjaan_gaji_akhir">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_nama_atasan" class="col-form-label col-form-label-sm">Nama Atasan</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_nama_atasan"
+                                                                    name="riwayat_pekerjaan_nama_atasan">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-12">
+                                                            <div class="form-group">
+                                                                <label for="riwayat_pekerjaan_alasan_berhenti" class="col-form-label col-form-label-sm">Alasan Berhenti</label>
+                                                                <input
+                                                                    type="text"
+                                                                    class="form-control form-control-sm"
+                                                                    id="riwayat_pekerjaan_alasan_berhenti"
+                                                                    name="riwayat_pekerjaan_alasan_berhenti">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <button class="btn btn-primary btn-sm btn-riwayat-pekerjaan-spinner d-none" disabled style="width: 130px;">
+                                                                <span class="spinner-grow spinner-grow-sm"></span>
+                                                                Loading...
+                                                            </button>
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-primary btn-sm btn-riwayat-pekerjaan-save"
+                                                                style="width: 130px;">
+                                                                    <i class="fas fa-save"></i> Simpan
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
+                                    <hr>
+                                    <div id="data_riwayat_pekerjaan">
+                                        {{-- riwayat pekerjaan data di jquery --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2398,6 +2526,279 @@ $(document).ready(function () {
                     Toast.fire({
                         icon: 'success',
                         title: 'Organisasi behasil dihapus'
+                    });
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
+    });
+
+    // riwayat_pekerjaan
+    riwayat_pekerjaan();
+    function riwayat_pekerjaan() {
+        var id = $('#id').val();
+        var url = '{{ route("profile.riwayat_pekerjaan", ":id") }}';
+        url = url.replace(':id', id );
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(response) {
+                var riwayat_pekerjaan_data = "";
+                $.each(response.riwayat_pekerjaans, function(index, value) {
+                    riwayat_pekerjaan_data += "" +
+                    "<div class=\"row\">" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"nama_perusahaan\" class=\"col-sm-5 col-form-label\">Nama Perusahaan</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.nama_perusahaan + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"jenis_industri\" class=\"col-sm-5 col-form-label\">Jenis Industri</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.jenis_industri + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"jabatan_awal\" class=\"col-sm-5 col-form-label\">Jabatan Awal</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.jabatan_awal + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"jabatan_akhir\" class=\"col-sm-5 col-form-label\">Jabatan Akhir</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.jabatan_akhir + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"awal_bekerja\" class=\"col-sm-5 col-form-label\">Awal Bekerja</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + tanggalIndo(value.awal_bekerja) + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"akhir_bekerja\" class=\"col-sm-5 col-form-label\">Akhir Bekerja</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.akhir_bekerja + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"gaji_awal\" class=\"col-sm-5 col-form-label\">Gaji Awal</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.gaji_awal + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"gaji_akhir\" class=\"col-sm-5 col-form-label\">Gaji Akhir</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.gaji_akhir + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"nama_atasan\" class=\"col-sm-5 col-form-label\">Nama Atasan</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.nama_atasan + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div class=\"col-lg-6 col-md-6 col-12\">" +
+                            "<div class=\"form-horizontal\">" +
+                                "<div class=\"form-group row\">" +
+                                    "<label for=\"alasan_berhenti\" class=\"col-sm-5 col-form-label\">Alasan Berhenti</label>" +
+                                    "<div class=\"col-sm-7\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.alasan_berhenti + "\">" +
+                                    "</div>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+                    "</div>" +
+                    "<hr>";
+                });
+                $('#data_riwayat_pekerjaan').append(riwayat_pekerjaan_data);
+            }
+        });
+    }
+
+    $('#riwayat_pekerjaan_form').submit(function(e) {
+        e.preventDefault();
+        if ($('#riwayat_pekerjaan_nama_perusahaan').val() == "") {
+            alert('Formulir tidak boleh kosong');
+        } else {
+            $('#data_riwayat_pekerjaan').empty();
+
+            var formData = {
+                id: $('#id').val(),
+                nama_perusahaan: $('#riwayat_pekerjaan_nama_perusahaan').val(),
+                jenis_industri: $('#riwayat_pekerjaan_jenis_industri').val(),
+                jabatan_awal: $('#riwayat_pekerjaan_jabatan_awal').val(),
+                jabatan_akhir: $('#riwayat_pekerjaan_jabatan_akhir').val(),
+                awal_bekerja: $('#riwayat_pekerjaan_awal_bekerja').val(),
+                akhir_bekerja: $('#riwayat_pekerjaan_akhir_bekerja').val(),
+                gaji_awal: $('#riwayat_pekerjaan_gaji_awal').val(),
+                gaji_akhir: $('#riwayat_pekerjaan_gaji_akhir').val(),
+                nama_atasan: $('#riwayat_pekerjaan_nama_atasan').val(),
+                alasan_berhenti: $('#riwayat_pekerjaan_alasan_berhenti').val()
+            }
+
+            $.ajax({
+                url: "{{ URL::route('profile.riwayat_pekerjaan_store') }}",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    $('.btn-riwayat-pekerjaan-spinner').removeClass('d-none');
+                    $('.btn-riwayat-pekerjaan-save').addClass('d-none');
+                },
+                success: function(response) {
+                    var riwayat_pekerjaan_data = "";
+
+                    if (response.riwayat_pekerjaans.length == 0) {
+                        riwayat_pekerjaan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.riwayat_pekerjaans, function(index, value) {
+                            riwayat_pekerjaan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.nama_perusahaan + "</td>" +
+                                "<td class=\"text-center\">" + value.jenis_industri + "</td>" +
+                                "<td class=\"text-center\">" + value.jabatan_awal + "</td>" +
+                                "<td class=\"text-center\">" + value.jabatan_akhir + "</td>" +
+                                "<td class=\"text-center\">" + value.awal_bekerja + "</td>" +
+                                "<td class=\"text-center\">" + value.akhir_bekerja + "</td>" +
+                                "<td class=\"text-center\">" + value.gaji_awal + "</td>" +
+                                "<td class=\"text-center\">" + value.gaji_akhir + "</td>" +
+                                "<td class=\"text-center\">" + value.nama_atasan + "</td>" +
+                                "<td class=\"text-center\">" + value.alasan_berhenti + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"riwayat_pekerjaan_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_riwayat_pekerjaan').append(riwayat_pekerjaan_data);
+
+                    $('#riwayat_pekerjaan_nama').val("");
+                    $('#riwayat_pekerjaan_jabatan').val("");
+                    $('#riwayat_pekerjaan_masa_kerja').val("");
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Riwayat Pekerjaan berhasil diperbaharui'
+                    });
+
+                    setTimeout(() => {
+                        $('.btn-riwayat-pekerjaan-spinner').addClass('d-none');
+                        $('.btn-riwayat-pekerjaan-save').removeClass('d-none');
+                    }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + error
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Error - ' + errorMessage
+                    });
+                }
+            });
+        }
+    });
+
+    $('body').on('click', '.riwayat_pekerjaan_btn_delete', function() {
+        var result = confirm('Yakin akan dihapus?');
+        if (result) {
+            $('#data_riwayat_pekerjaan').empty();
+
+            var id = $(this).attr('data-id');
+            var url = '{{ route("profile.riwayat_pekerjaan_delete", ":id") }}';
+            url = url.replace(':id', id );
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    var riwayat_pekerjaan_data = "";
+
+                    if (response.riwayat_pekerjaans.length == 0) {
+                        riwayat_pekerjaan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\" colspan=\"3\">Kosong</td>";
+                            "</tr>";
+                    } else {
+                        $.each(response.riwayat_pekerjaans, function(index, value) {
+                            riwayat_pekerjaan_data += "" +
+                            "<tr>" +
+                                "<td class=\"text-center\">" + value.nama_perusahaan + "</td>" +
+                                "<td class=\"text-center\">" + value.jenis_industri + "</td>" +
+                                "<td class=\"text-center\">" + value.jabatan_awal + "</td>" +
+                                "<td class=\"text-center\">" + value.jabatan_akhir + "</td>" +
+                                "<td class=\"text-center\">" + value.awal_bekerja + "</td>" +
+                                "<td class=\"text-center\">" + value.akhir_bekerja + "</td>" +
+                                "<td class=\"text-center\">" + value.gaji_awal + "</td>" +
+                                "<td class=\"text-center\">" + value.gaji_akhir + "</td>" +
+                                "<td class=\"text-center\">" + value.nama_atasan + "</td>" +
+                                "<td class=\"text-center\">" + value.alasan_berhenti + "</td>" +
+                                "<td class=\"text-center\">" +
+                                    "<button class=\"riwayat_pekerjaan_btn_delete border-0 bg-transparent text-danger\" title=\"hapus\" data-id=\"" + value.id + "\">" +
+                                            "<i class=\"fa fa-trash\"></i>" +
+                                    "</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                    }
+                    $('#data_riwayat_pekerjaan').append(riwayat_pekerjaan_data);
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Riwayat Pekerjaan berhasil dihapus'
                     });
                 },
                 error: function(xhr, status, error) {
