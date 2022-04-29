@@ -2612,7 +2612,7 @@ $(document).ready(function () {
                                 "<div class=\"form-group row\">" +
                                     "<label for=\"akhir_bekerja\" class=\"col-sm-5 col-form-label\">Akhir Bekerja</label>" +
                                     "<div class=\"col-sm-7\">" +
-                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + value.akhir_bekerja + "\">" +
+                                        "<input type=\"text\" class=\"form-control text-right border-0\" value=\"" + tanggalIndo(value.akhir_bekerja) + "\">" +
                                     "</div>" +
                                 "</div>" +
                             "</div>" +
