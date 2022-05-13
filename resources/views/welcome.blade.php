@@ -74,7 +74,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                                 <p>Saat ini kami membutuhkan tenaga kerja sebagai berikut:</p>
                                                                 <ol class="pl-3">
                                                                     @foreach ($current_lokers as $item)
-                                                                        <li class="brand-text font-weight-light">{{ $item->masterJabatan->nama_jabatan }}</li>
+                                                                        <li class="brand-text font-weight-light">{{ $item->jabatan->nama_jabatan }}</li>
                                                                     @endforeach
                                                                 </ol>
                                                                 <p class="p-0 m-0">Punya Akun / sudah daftar sebelumnya?</p>
@@ -88,7 +88,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             </td>
                                                         </tr>
                                                     </tbody>
-                                                  </table>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -96,21 +96,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
                         </div>
                     </div>
-                </div><!-- /.container-fluid -->
+                </div>
             </div>
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
     </div>
-    <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="{{ asset('public/themes/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('public/themes/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('public/themes/dist/js/adminlte.min.js') }}"></script>
+    <!-- jQuery -->
+    <script src="{{ asset('public/themes/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('public/themes/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('public/themes/dist/js/adminlte.min.js') }}"></script>
 </body>
 </html>
