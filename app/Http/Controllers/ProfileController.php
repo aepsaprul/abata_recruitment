@@ -28,6 +28,138 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function fotoUpdate(Request $request)
+    {
+        $biodata = LokerBiodata::where('email', $request->id)->first();
+
+        if($request->hasFile('foto')) {
+            if (file_exists("public/image/" . $biodata->foto)) {
+                File::delete("public/image/" . $biodata->foto);
+            }
+            $file = $request->file('foto');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move('public/image/', $filename);
+            $biodata->foto = $filename;
+        }
+
+        $biodata->save();
+
+        return response()->json([
+            'status' => $request->all()
+        ]);
+    }
+
+    public function kkUpdate(Request $request)
+    {
+        $biodata = LokerBiodata::where('email', $request->id)->first();
+
+        if($request->hasFile('kk')) {
+            if (file_exists("public/image/" . $biodata->kk)) {
+                File::delete("public/image/" . $biodata->kk);
+            }
+            $file = $request->file('kk');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move('public/image/', $filename);
+            $biodata->kk = $filename;
+        }
+
+        $biodata->save();
+
+        return response()->json([
+            'status' => $request->all()
+        ]);
+    }
+
+    public function ktpUpdate(Request $request)
+    {
+        $biodata = LokerBiodata::where('email', $request->id)->first();
+
+        if($request->hasFile('ktp')) {
+            if (file_exists("public/image/" . $biodata->ktp)) {
+                File::delete("public/image/" . $biodata->ktp);
+            }
+            $file = $request->file('ktp');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move('public/image/', $filename);
+            $biodata->ktp = $filename;
+        }
+
+        $biodata->save();
+
+        return response()->json([
+            'status' => $request->all()
+        ]);
+    }
+
+    public function suratLamaranUpdate(Request $request)
+    {
+        $biodata = LokerBiodata::where('email', $request->id)->first();
+
+        if($request->hasFile('surat_lamaran')) {
+            if (file_exists("public/image/" . $biodata->surat_lamaran)) {
+                File::delete("public/image/" . $biodata->surat_lamaran);
+            }
+            $file = $request->file('surat_lamaran');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move('public/image/', $filename);
+            $biodata->surat_lamaran = $filename;
+        }
+
+        $biodata->save();
+
+        return response()->json([
+            'status' => $request->all()
+        ]);
+    }
+
+    public function cvUpdate(Request $request)
+    {
+        $biodata = LokerBiodata::where('email', $request->id)->first();
+
+        if($request->hasFile('cv')) {
+            if (file_exists("public/image/" . $biodata->cv)) {
+                File::delete("public/image/" . $biodata->cv);
+            }
+            $file = $request->file('cv');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move('public/image/', $filename);
+            $biodata->cv = $filename;
+        }
+
+        $biodata->save();
+
+        return response()->json([
+            'status' => $request->all()
+        ]);
+    }
+
+    public function ijazahUpdate(Request $request)
+    {
+        $biodata = LokerBiodata::where('email', $request->id)->first();
+
+        if($request->hasFile('ijazah')) {
+            if (file_exists("public/image/" . $biodata->ijazah)) {
+                File::delete("public/image/" . $biodata->ijazah);
+            }
+            $file = $request->file('ijazah');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move('public/image/', $filename);
+            $biodata->ijazah = $filename;
+        }
+
+        $biodata->save();
+
+        return response()->json([
+            'status' => $request->all()
+        ]);
+    }
+
     public function biodataUpdate(Request $request)
     {
         $messages = [
@@ -100,28 +232,6 @@ class ProfileController extends Controller
                 'message' => "Data berhasil ditambahkan"
             ]);
         }
-    }
-
-    public function fotoUpdate(Request $request)
-    {
-        $biodata = LokerBiodata::where('email', $request->id)->first();
-
-        if($request->hasFile('foto')) {
-            if (file_exists("public/foto/" . $biodata->foto)) {
-                File::delete("public/foto/" . $biodata->foto);
-            }
-            $file = $request->file('foto');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . "." . $extension;
-            $file->move('public/foto/', $filename);
-            $biodata->foto = $filename;
-        }
-
-        $biodata->save();
-
-        return response()->json([
-            'status' => $request->all()
-        ]);
     }
 
     public function sebelumMenikah($id)

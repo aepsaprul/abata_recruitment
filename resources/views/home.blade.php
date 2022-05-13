@@ -31,34 +31,35 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                    <!-- Profile Image -->
+                <div class="col-2">
+                    {{-- pas foto --}}
                     <div class="card card-primary card-outline">
                         <form id="form_foto" method="post" enctype="multipart/form-data">
                             <div class="card-body box-profile">
                                 <div class="text-center profile_img">
                                     @if ($biodata->foto)
-                                        @if(file_exists('public/foto/' . $biodata->foto))
+                                        @if(file_exists('public/image/' . $biodata->foto))
                                         <img
-                                            class="img-fluid img-circle"
-                                            src="{{ asset('public/foto/' . $biodata->foto) }}"
+                                            class="img-fluid"
+                                            src="{{ asset('public/image/' . $biodata->foto) }}"
                                             alt="User profile picture"
                                             style="width: 100%;">
                                         @else
                                         <img
-                                            class="img-fluid img-circle"
+                                            class="img-fluid"
                                             src="{{ asset('public/assets/no-image.jpg') }}"
                                             alt="User profile picture"
                                             style="width: 100%;">
                                         @endif
                                     @else
                                         <img
-                                            class="img-fluid img-circle"
+                                            class="img-fluid"
                                             src="{{ asset('public/assets/no-image.jpg') }}"
                                             alt="User profile picture"
                                             style="width: 100%;">
                                     @endif
                                 </div>
+                                <small>Pas Foto</small>
                             </div>
                             <div class="card-footer">
                                 {{-- id --}}
@@ -72,12 +73,249 @@
                                     <span class="spinner-grow spinner-grow-sm"></span>
                                     Loading...
                                 </button>
-                                <button type="submit" class="btn btn-primary btn-sm btn-block btn-foto">Update Foto</button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-block btn-foto">Update</button>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-2">
+                    {{-- kartu keluarga --}}
+                    <div class="card card-primary card-outline">
+                        <form id="form_kk" method="post" enctype="multipart/form-data">
+                            <div class="card-body box-profile">
+                                <div class="text-center img_kk">
+                                    @if ($biodata->kk)
+                                        @if(file_exists('public/image/' . $biodata->kk))
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/image/' . $biodata->kk) }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @endif
+                                    @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                    @endif
+                                </div>
+                                <small>Kartu Keluarga</small>
+                            </div>
+                            <div class="card-footer">
+                                {{-- id --}}
+                                <input type="hidden" id="id" value="{{ Auth::user()->email }}" name="id">
+
+                                <div class="custom-file mb-2">
+                                    <input type="file" class="custom-file-input" id="customFile" name="kk">
+                                    <label class="custom-file-label" for="customFile">Pilih Kartu Keluarga</label>
+                                </div>
+                                <button class="btn btn-primary btn-kk-spinner d-none btn-block" disabled>
+                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                    Loading...
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-block btn-kk">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-2">
+                    {{-- ktp --}}
+                    <div class="card card-primary card-outline">
+                        <form id="form_ktp" method="post" enctype="multipart/form-data">
+                            <div class="card-body box-profile">
+                                <div class="text-center img_ktp">
+                                    @if ($biodata->ktp)
+                                        @if(file_exists('public/image/' . $biodata->ktp))
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/image/' . $biodata->ktp) }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @endif
+                                    @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                    @endif
+                                </div>
+                                <small>KTP</small>
+                            </div>
+                            <div class="card-footer">
+                                {{-- id --}}
+                                <input type="hidden" id="id" value="{{ Auth::user()->email }}" name="id">
+
+                                <div class="custom-file mb-2">
+                                    <input type="file" class="custom-file-input" id="customFile" name="ktp">
+                                    <label class="custom-file-label" for="customFile">Pilih KTP</label>
+                                </div>
+                                <button class="btn btn-primary btn-ktp-spinner d-none btn-block" disabled>
+                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                    Loading...
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-block btn-ktp">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-2">
+                    {{-- surat lamaran --}}
+                    <div class="card card-primary card-outline">
+                        <form id="form_surat_lamaran" method="post" enctype="multipart/form-data">
+                            <div class="card-body box-profile">
+                                <div class="text-center img_surat_lamaran">
+                                    @if ($biodata->surat_lamaran)
+                                        @if(file_exists('public/image/' . $biodata->surat_lamaran))
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/image/' . $biodata->surat_lamaran) }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @endif
+                                    @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                    @endif
+                                </div>
+                                <small>Surat Lamaran</small>
+                            </div>
+                            <div class="card-footer">
+                                {{-- id --}}
+                                <input type="hidden" id="id" value="{{ Auth::user()->email }}" name="id">
+
+                                <div class="custom-file mb-2">
+                                    <input type="file" class="custom-file-input" id="customFile" name="surat_lamaran">
+                                    <label class="custom-file-label" for="customFile">Pilih Surat Lamaran</label>
+                                </div>
+                                <button class="btn btn-primary btn-surat-lamaran-spinner d-none btn-block" disabled>
+                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                    Loading...
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-block btn-surat-lamaran">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-2">
+                    {{-- cv --}}
+                    <div class="card card-primary card-outline">
+                        <form id="form_cv" method="post" enctype="multipart/form-data">
+                            <div class="card-body box-profile">
+                                <div class="text-center img_cv">
+                                    @if ($biodata->cv)
+                                        @if(file_exists('public/image/' . $biodata->cv))
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/image/' . $biodata->cv) }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @endif
+                                    @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                    @endif
+                                </div>
+                                <small>Curriculum Vitae</small>
+                            </div>
+                            <div class="card-footer">
+                                {{-- id --}}
+                                <input type="hidden" id="id" value="{{ Auth::user()->email }}" name="id">
+
+                                <div class="custom-file mb-2">
+                                    <input type="file" class="custom-file-input" id="customFile" name="cv">
+                                    <label class="custom-file-label" for="customFile">Pilih Curriculum Vitae</label>
+                                </div>
+                                <button class="btn btn-primary btn-cv-spinner d-none btn-block" disabled>
+                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                    Loading...
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-block btn-cv">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-2">
+                    {{-- ijazah --}}
+                    <div class="card card-primary card-outline">
+                        <form id="form_ijazah" method="post" enctype="multipart/form-data">
+                            <div class="card-body box-profile">
+                                <div class="text-center img_ijazah">
+                                    @if ($biodata->ijazah)
+                                        @if(file_exists('public/image/' . $biodata->ijazah))
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/image/' . $biodata->ijazah) }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                        @endif
+                                    @else
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ asset('public/assets/no-image.jpg') }}"
+                                            alt="User profile picture"
+                                            style="width: 100%;">
+                                    @endif
+                                </div>
+                                <small>Ijazah</small>
+                            </div>
+                            <div class="card-footer">
+                                {{-- id --}}
+                                <input type="hidden" id="id" value="{{ Auth::user()->email }}" name="id">
+
+                                <div class="custom-file mb-2">
+                                    <input type="file" class="custom-file-input" id="customFile" name="ijazah">
+                                    <label class="custom-file-label" for="customFile">Pilih Ijazah</label>
+                                </div>
+                                <button class="btn btn-primary btn-ijazah-spinner d-none btn-block" disabled>
+                                    <span class="spinner-grow spinner-grow-sm"></span>
+                                    Loading...
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-block btn-ijazah">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
@@ -984,7 +1222,7 @@ $(document).ready(function () {
         timer: 3000
     });
 
-    // upload foto
+    // upload pas foto
     $('input[type="file"][name="foto"]').on('change', function() {
         var img_path = $(this)[0].value;
         var img_holder = $('.profile_img');
@@ -995,7 +1233,7 @@ $(document).ready(function () {
                 img_holder.empty();
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    $('<img/>', {'src':e.target.result, 'class':'img-fluid img-circle'}).appendTo(img_holder);
+                    $('<img/>', {'src':e.target.result, 'class':'img-fluid'}).appendTo(img_holder);
                 }
                 img_holder.show();
                 reader.readAsDataURL($(this)[0].files[0]);
@@ -1026,6 +1264,301 @@ $(document).ready(function () {
                 Toast.fire({
                     icon: 'success',
                     title: 'Foto berhasil diubah'
+                });
+
+                setTimeout(() => {
+                    window.location.reload(1);
+                }, 1000);
+            },
+            error: function(xhr, status, error) {
+                var errorMessage = xhr.status + ': ' + error
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error - ' + errorMessage
+                });
+            }
+        })
+    })
+
+    // upload kartu keluarga
+    $('input[type="file"][name="kk"]').on('change', function() {
+        var img_path = $(this)[0].value;
+        var img_holder = $('.img_kk');
+        var currentImagePath = $(this).data('value');
+        var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
+        if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
+            if (typeof(FileReader) != 'undefind') {
+                img_holder.empty();
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('<img/>', {'src':e.target.result, 'class':'img-fluid'}).appendTo(img_holder);
+                }
+                img_holder.show();
+                reader.readAsDataURL($(this)[0].files[0]);
+            } else {
+                $(img_holder).html('Browser tidak support FileReader');
+            }
+        } else {
+            $(img_holder).html(currentImagePath);
+        }
+    });
+
+    $(document).on('submit', '#form_kk', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData($('#form_kk')[0]);
+
+        $.ajax({
+            url: "{{ URL::route('profile.kk_update') }}",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('.btn-kk-spinner').removeClass('d-none');
+                $('.btn-kk').addClass('d-none');
+            },
+            success: function (response) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Kartu keluarga berhasil diubah'
+                });
+
+                setTimeout(() => {
+                    window.location.reload(1);
+                }, 1000);
+            },
+            error: function(xhr, status, error) {
+                var errorMessage = xhr.status + ': ' + error
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error - ' + errorMessage
+                });
+            }
+        })
+    })
+
+    // upload ktp
+    $('input[type="file"][name="ktp"]').on('change', function() {
+        var img_path = $(this)[0].value;
+        var img_holder = $('.img_ktp');
+        var currentImagePath = $(this).data('value');
+        var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
+        if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
+            if (typeof(FileReader) != 'undefind') {
+                img_holder.empty();
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('<img/>', {'src':e.target.result, 'class':'img-fluid'}).appendTo(img_holder);
+                }
+                img_holder.show();
+                reader.readAsDataURL($(this)[0].files[0]);
+            } else {
+                $(img_holder).html('Browser tidak support FileReader');
+            }
+        } else {
+            $(img_holder).html(currentImagePath);
+        }
+    });
+
+    $(document).on('submit', '#form_ktp', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData($('#form_ktp')[0]);
+
+        $.ajax({
+            url: "{{ URL::route('profile.ktp_update') }}",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('.btn-ktp-spinner').removeClass('d-none');
+                $('.btn-ktp').addClass('d-none');
+            },
+            success: function (response) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'KTP berhasil diubah'
+                });
+
+                setTimeout(() => {
+                    window.location.reload(1);
+                }, 1000);
+            },
+            error: function(xhr, status, error) {
+                var errorMessage = xhr.status + ': ' + error
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error - ' + errorMessage
+                });
+            }
+        })
+    })
+
+    // upload surat lamaran
+    $('input[type="file"][name="surat_lamaran"]').on('change', function() {
+        var img_path = $(this)[0].value;
+        var img_holder = $('.img_surat_lamaran');
+        var currentImagePath = $(this).data('value');
+        var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
+        if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
+            if (typeof(FileReader) != 'undefind') {
+                img_holder.empty();
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('<img/>', {'src':e.target.result, 'class':'img-fluid'}).appendTo(img_holder);
+                }
+                img_holder.show();
+                reader.readAsDataURL($(this)[0].files[0]);
+            } else {
+                $(img_holder).html('Browser tidak support FileReader');
+            }
+        } else {
+            $(img_holder).html(currentImagePath);
+        }
+    });
+
+    $(document).on('submit', '#form_surat_lamaran', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData($('#form_surat_lamaran')[0]);
+
+        $.ajax({
+            url: "{{ URL::route('profile.surat_lamaran_update') }}",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('.btn-surat-lamaran-spinner').removeClass('d-none');
+                $('.btn-surat-lamaran').addClass('d-none');
+            },
+            success: function (response) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Surat lamaran berhasil diubah'
+                });
+
+                setTimeout(() => {
+                    window.location.reload(1);
+                }, 1000);
+            },
+            error: function(xhr, status, error) {
+                var errorMessage = xhr.status + ': ' + error
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error - ' + errorMessage
+                });
+            }
+        })
+    })
+
+    // upload cv
+    $('input[type="file"][name="cv"]').on('change', function() {
+        var img_path = $(this)[0].value;
+        var img_holder = $('.img_cv');
+        var currentImagePath = $(this).data('value');
+        var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
+        if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
+            if (typeof(FileReader) != 'undefind') {
+                img_holder.empty();
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('<img/>', {'src':e.target.result, 'class':'img-fluid'}).appendTo(img_holder);
+                }
+                img_holder.show();
+                reader.readAsDataURL($(this)[0].files[0]);
+            } else {
+                $(img_holder).html('Browser tidak support FileReader');
+            }
+        } else {
+            $(img_holder).html(currentImagePath);
+        }
+    });
+
+    $(document).on('submit', '#form_cv', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData($('#form_cv')[0]);
+
+        $.ajax({
+            url: "{{ URL::route('profile.cv_update') }}",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('.btn-cv-spinner').removeClass('d-none');
+                $('.btn-cv').addClass('d-none');
+            },
+            success: function (response) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Curriculum vitae berhasil diubah'
+                });
+
+                setTimeout(() => {
+                    window.location.reload(1);
+                }, 1000);
+            },
+            error: function(xhr, status, error) {
+                var errorMessage = xhr.status + ': ' + error
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error - ' + errorMessage
+                });
+            }
+        })
+    })
+
+    // upload ijazah
+    $('input[type="file"][name="ijazah"]').on('change', function() {
+        var img_path = $(this)[0].value;
+        var img_holder = $('.img_ijazah');
+        var currentImagePath = $(this).data('value');
+        var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
+        if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
+            if (typeof(FileReader) != 'undefind') {
+                img_holder.empty();
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('<img/>', {'src':e.target.result, 'class':'img-fluid'}).appendTo(img_holder);
+                }
+                img_holder.show();
+                reader.readAsDataURL($(this)[0].files[0]);
+            } else {
+                $(img_holder).html('Browser tidak support FileReader');
+            }
+        } else {
+            $(img_holder).html(currentImagePath);
+        }
+    });
+
+    $(document).on('submit', '#form_ijazah', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData($('#form_ijazah')[0]);
+
+        $.ajax({
+            url: "{{ URL::route('profile.ijazah_update') }}",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('.btn-ijazah-spinner').removeClass('d-none');
+                $('.btn-ijazah').addClass('d-none');
+            },
+            success: function (response) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Ijazah berhasil diubah'
                 });
 
                 setTimeout(() => {
