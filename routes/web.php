@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LokerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -76,5 +77,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('profile/{id}/riwayat_pekerjaan_delete', [ProfileController::class, 'riwayatPekerjaanDelete'])->name('profile.riwayat_pekerjaan_delete');
 
     // loker
-
+    Route::get('loker', [LokerController::class, 'index'])->name('loker.index');
+    Route::post('loker/store', [LokerController::class, 'store'])->name('loker.store');
 });

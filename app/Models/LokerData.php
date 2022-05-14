@@ -14,4 +14,12 @@ class LokerData extends Model
     public function jabatan() {
         return $this->belongsTo(MasterJabatan::class, 'jabatan_id', 'id');
     }
+
+    public function cabang() {
+        return $this->belongsTo(MasterCabang::class, 'cabang_id', 'id');
+    }
+
+    public function lamaran() {
+        return $this->hasMany(LokerLamaran::class, 'loker_data_id', 'id');
+    }
 }
