@@ -11,7 +11,7 @@ class LokerController extends Controller
 {
     public function index()
     {
-        $loker = LokerData::get();
+        $loker = LokerData::where('publish', 'y')->get();
 
         $lamaran = LokerLamaran::where('email', Auth::user()->email)->get();
 
@@ -31,6 +31,15 @@ class LokerController extends Controller
 
         return response()->json([
             'status' => 'true'
+        ]);
+    }
+
+    public function show($id)
+    {
+        $loker = LokerData::find($id);
+
+        return response()->json([
+            'loker' => $loker
         ]);
     }
 }

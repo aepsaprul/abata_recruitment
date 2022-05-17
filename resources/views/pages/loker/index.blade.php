@@ -47,7 +47,7 @@
                                                 <td>{{ $item->cabang->nama_cabang }}</td>
                                                 <td>{{ $item->lokasi }}</td>
                                                 <td>{{ $item->jabatan->nama_jabatan }}</td>
-                                                <td class="text-center"><a href="#">Lihat</a></td>
+                                                <td class="text-center"><a href="#" class="btn_detail" data-id="{{ $item->id }}">Lihat</a></td>
                                                 <td class="text-center text-capitalize">
                                                     @foreach ($lamarans as $item_lamaran)
                                                         @if ($item_lamaran->loker_data_id == $item->id)
@@ -88,6 +88,19 @@
     </div>
 </div>
 
+{{-- modal detail --}}
+<div class="modal fade modal-detail" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="form-detail">
+                <div class="modal-body">
+                    <img src="" alt="" class="detail_img" style="max-width: 100%;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section('script')
@@ -121,6 +134,26 @@ $(document).ready(function () {
         timer: 3000
     });
 
+    // btn detail
+    $(document).on('click', '.btn_detail', function (e) {
+        e.preventDefault();
+
+        var id = $(this).attr('data-id');
+        var url = '{{ route("loker.show", ":id") }}';
+        url = url.replace(':id', id);
+
+        $.ajax({
+            url: url,
+            type: "get",
+            success: function (response) {
+                console.log(response);
+                $('.detail_img').prop("src", "{{ URL::to('http://localhost/abata_hrd/') }}" + "/public/file/loker/" + response.loker.image);
+                $('.modal-detail').modal('show');
+            }
+        })
+    })
+
+    // btn kirim
     $(document).on('click', '.btn_kirim', function (e) {
         e.preventDefault();
         let id = $(this).attr('data-id');
@@ -144,7 +177,7 @@ $(document).ready(function () {
             success: function (response) {
                 Toast.fire({
                     icon: 'success',
-                    title: 'Data sebelum menikah berhasil diperbaharui'
+                    title: 'Data berhasil dikirim'
                 });
 
                 setTimeout(() => {

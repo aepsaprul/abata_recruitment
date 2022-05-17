@@ -79,4 +79,5 @@ Route::group(['middleware' => 'auth'], function () {
     // loker
     Route::get('loker', [LokerController::class, 'index'])->name('loker.index');
     Route::post('loker/store', [LokerController::class, 'store'])->name('loker.store');
+    Route::get('loker/{id}/show', [LokerController::class, 'show'])->name('loker.show');
 });
